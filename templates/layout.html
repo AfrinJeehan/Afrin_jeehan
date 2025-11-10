@@ -4,39 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Afrin Jeehan - Portfolio{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af',
+                        dark: '#0f172a',
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s linear infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
+            }
+            .neural-bg {
+                background-image: radial-gradient(circle at 10px 10px, #2563eb10 0%, transparent 0%),
+                                radial-gradient(circle at 40px 40px, #1e40af10 0%, transparent 0%);
+                background-size: 50px 50px;
+            }
+            .glassmorphism {
+                @apply bg-white/80 backdrop-blur-lg;
+            }
+        }
+    </style>
     {% block extra_css %}{% endblock %}
 </head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">AJ</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<body class="bg-slate-50">
+    <nav class="fixed w-full z-50 glassmorphism border-b border-slate-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <div class="text-2xl font-bold text-gradient">AJ</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-slate-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#about" class="text-slate-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#projects" class="text-slate-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
+                        <a href="#skills" class="text-slate-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
+                        <a href="#contact" class="text-slate-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
     {% block content %}{% endblock %}
 
-    <footer class="footer">
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/AfrinJeehan" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:afrinjeehan01@gmail.com"><i class="fas fa-envelope"></i></a>
+    <footer class="bg-dark text-white mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Afrin Jeehan</h3>
+                    <p class="text-slate-400">AI/ML Enthusiast & Software Developer</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#projects" class="text-slate-400 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#skills" class="text-slate-400 hover:text-white transition-colors">Skills</a></li>
+                        <li><a href="#contact" class="text-slate-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" 
+                           class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://github.com/AfrinJeehan" target="_blank"
+                           class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="mailto:afrinjeehan01@gmail.com"
+                           class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p>© 2025 Afrin Jeehan | AI & ML Enthusiast</p>
+            <div class="mt-8 pt-8 border-t border-slate-800 text-center">
+                <p class="text-slate-400">© 2025 Afrin Jeehan | Built with AI & ❤️</p>
+            </div>
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <div class="fixed bottom-4 right-4 flex flex-col space-y-4">
+        <button id="themeToggle" class="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all">
+            <i class="fas fa-moon text-slate-700"></i>
+        </button>
+        <a href="#home" class="p-3 rounded-full bg-primary text-white shadow-lg hover:shadow-xl transition-all">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+
+        // Neural background animation
+        function createNeuralDots() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.style.position = 'fixed';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.zIndex = '-1';
+            canvas.style.opacity = '0.1';
+            document.body.appendChild(canvas);
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const dots = [];
+            for (let i = 0; i < 50; i++) {
+                dots.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 2,
+                    vy: (Math.random() - 0.5) * 2
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                dots.forEach((dot, i) => {
+                    dot.x += dot.vx;
+                    dot.y += dot.vy;
+
+                    if (dot.x < 0 || dot.x > canvas.width) dot.vx *= -1;
+                    if (dot.y < 0 || dot.y > canvas.height) dot.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(dot.x, dot.y, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = '#2563eb';
+                    ctx.fill();
+
+                    dots.forEach((otherDot, j) => {
+                        if (i !== j) {
+                            const dx = dot.x - otherDot.x;
+                            const dy = dot.y - otherDot.y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+
+                            if (distance < 150) {
+                                ctx.beginPath();
+                                ctx.moveTo(dot.x, dot.y);
+                                ctx.lineTo(otherDot.x, otherDot.y);
+                                ctx.strokeStyle = `rgba(37, 99, 235, ${1 - distance / 150})`;
+                                ctx.stroke();
+                            }
+                        }
+                    });
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+        createNeuralDots();
+    </script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>
