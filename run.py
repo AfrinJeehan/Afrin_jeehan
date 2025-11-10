@@ -1,14 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 @app.route("/")
 def index():
-    developer_info = {
-        "name": "Afrin Jeehan",
-        "role": "AI/ML & Robotics Enthusiast",
-    }
-    return render_template("index.html", info=developer_info)
+    return render_template("index.html")
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
