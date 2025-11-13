@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Projects & Researches - Afrin Jeehan{% endblock %}
+
+{% block content %}
+<section class="py-20 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+            <h1 class="text-4xl font-bold text-gradient mb-2">Projects & Researches</h1>
+            <p class="text-slate-600 dark:text-slate-400">Browse my selected projects and research work. Click any project to view full details.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {% for p in projects %}
+            <article class="bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-2">{{ p.title }}</h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-3">{{ p.description }}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {% for tech in p.technologies %}
+                    <span class="px-3 py-1 bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-300 rounded-full text-sm">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                <a href="{{ url_for('project_detail', pid=loop.index0) }}" class="inline-block mt-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full">View details</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask import Flask, render_template, request, jsonify, send_from_directory, abort
 import os
 
 app = Flask(__name__, static_folder='static')
@@ -28,6 +28,26 @@ projects = [
 @app.route("/")
 def index():
     return render_template("index.html", projects=projects)
+
+
+@app.route('/projects')
+def projects_page():
+    # list all projects with brief info
+    return render_template('projects.html', projects=projects)
+
+
+@app.route('/projects/<int:pid>')
+def project_detail(pid):
+    # show project detail by index
+    if pid < 0 or pid >= len(projects):
+        abort(404)
+    project = projects[pid]
+    return render_template('project_detail.html', project=project, pid=pid)
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route("/api/projects")
 def get_projects():
