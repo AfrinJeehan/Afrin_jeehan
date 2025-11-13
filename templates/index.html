@@ -234,6 +234,71 @@
     </div>
 </section>
 
+<!-- Featured Writings Section -->
+<section class="py-20 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-800 dark:to-slate-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+            <h2 class="text-4xl font-bold text-gradient mb-4">Featured Writings</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-600 mx-auto mb-6"></div>
+            <p class="text-lg text-slate-600 dark:text-slate-300">
+                Explore my thoughts on technology, creativity, and learning through articles, poems, essays, and more.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+            {% for writing in featured_writings %}
+            <article class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden 
+                           hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <div class="h-2 bg-gradient-to-r from-{{ writing.color }}-400 to-{{ writing.color }}-600"></div>
+                
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full 
+                                   bg-{{ writing.color }}-100 dark:bg-{{ writing.color }}-900/30
+                                   text-{{ writing.color }}-700 dark:text-{{ writing.color }}-300">
+                            {{ writing.category_name }}
+                        </span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">
+                            <i class="far fa-clock mr-1"></i>{{ writing.read_time }}
+                        </span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white line-clamp-2">
+                        {{ writing.title }}
+                    </h3>
+                    
+                    <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
+                        {{ writing.excerpt }}
+                    </p>
+                    
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-slate-500 dark:text-slate-400">
+                            {{ writing.date }}
+                        </span>
+                        <a href="{{ url_for('writing_detail', category=writing.category_key, writing_id=writing.id) }}" 
+                           class="text-{{ writing.color }}-600 dark:text-{{ writing.color }}-400 
+                                  hover:underline font-medium flex items-center gap-2">
+                            Read More
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <div class="text-center">
+            <a href="{{ url_for('writings_page') }}" 
+               class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 
+                      hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg 
+                      shadow-lg hover:shadow-xl transition-all duration-300">
+                <i class="fas fa-book-open"></i>
+                Explore All Writings
+            </a>
+        </div>
+    </div>
+</section>
+
 <section id="contact" class="py-20 bg-white dark:bg-slate-900">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center mb-16">

@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Category Header -->
+<section class="pt-32 pb-16 bg-gradient-to-br from-{{ category_info.color }}-50 to-{{ category_info.color }}-100 
+                dark:from-slate-800 dark:to-slate-900">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Breadcrumb -->
+            <nav class="mb-6">
+                <ol class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                    <li><a href="{{ url_for('writings_page') }}" class="hover:text-{{ category_info.color }}-600 dark:hover:text-{{ category_info.color }}-400">Writings</a></li>
+                    <li><i class="fas fa-chevron-right text-xs"></i></li>
+                    <li class="text-{{ category_info.color }}-600 dark:text-{{ category_info.color }}-400 font-medium">{{ category_info.name }}</li>
+                </ol>
+            </nav>
+            
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-20 h-20 rounded-2xl bg-{{ category_info.color }}-200 dark:bg-{{ category_info.color }}-900/30 
+                            flex items-center justify-center">
+                    <i class="fas {{ category_info.icon }} text-4xl text-{{ category_info.color }}-600 dark:text-{{ category_info.color }}-400"></i>
+                </div>
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-2">
+                        {{ category_info.name }}
+                    </h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-300">
+                        {{ items|length }} {{ 'item' if items|length == 1 else 'items' }}
+                    </p>
+                </div>
+            </div>
+            
+            <p class="text-xl text-slate-600 dark:text-slate-300">
+                {{ category_info.description }}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Articles List -->
+<section class="py-16 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto space-y-8">
+            {% for writing in items %}
+            <article class="group bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-2xl 
+                           border border-slate-200 dark:border-slate-700 overflow-hidden
+                           transition-all duration-300 hover:-translate-y-1">
+                
+                <div class="h-1 bg-gradient-to-r from-{{ category_info.color }}-400 to-{{ category_info.color }}-600 
+                            group-hover:h-2 transition-all"></div>
+                
+                <div class="p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-sm text-slate-500 dark:text-slate-400">
+                            <i class="far fa-calendar mr-2"></i>{{ writing.date }}
+                        </span>
+                        <span class="text-slate-300 dark:text-slate-600">•</span>
+                        <span class="text-sm text-slate-500 dark:text-slate-400">
+                            <i class="far fa-clock mr-2"></i>{{ writing.read_time }}
+                        </span>
+                    </div>
+                    
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-slate-800 dark:text-white 
+                               group-hover:text-{{ category_info.color }}-600 dark:group-hover:text-{{ category_info.color }}-400 
+                               transition-colors">
+                        {{ writing.title }}
+                    </h2>
+                    
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                        {{ writing.excerpt }}
+                    </p>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-wrap gap-2">
+                            {% for tag in writing.tags %}
+                            <span class="text-xs px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 
+                                       text-slate-600 dark:text-slate-300">
+                                #{{ tag }}
+                            </span>
+                            {% endfor %}
+                        </div>
+                        
+                        <a href="{{ url_for('writing_detail', category=category, writing_id=writing.id) }}" 
+                           class="flex items-center gap-2 px-6 py-3 rounded-lg
+                                  bg-{{ category_info.color }}-600 hover:bg-{{ category_info.color }}-700 
+                                  text-white font-medium transition-colors">
+                            Read Article
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        
+        <!-- Back to all writings -->
+        <div class="text-center mt-12">
+            <a href="{{ url_for('writings_page') }}" 
+               class="inline-flex items-center gap-2 text-{{ category_info.color }}-600 dark:text-{{ category_info.color }}-400 
+                      hover:underline font-medium text-lg">
+                <i class="fas fa-arrow-left"></i>
+                Back to All Writings
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
