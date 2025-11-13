@@ -224,8 +224,9 @@ def index():
     for category_key, items in writings.items():
         if items:
             latest = items[0].copy()
-            latest['category'] = category_key
-            latest['category_info'] = writing_categories[category_key]
+            latest['category_key'] = category_key
+            latest['category_name'] = writing_categories[category_key]['name']
+            latest['color'] = writing_categories[category_key]['color']
             featured_writings.append(latest)
     
     return render_template("index.html", projects=projects, featured_writings=featured_writings)
@@ -255,7 +256,7 @@ def contact():
 def writings_page():
     # Main writings page with all categories
     return render_template('writings.html', 
-                         categories=writing_categories,
+                         writing_categories=writing_categories,
                          writings=writings)
 
 
@@ -287,11 +288,13 @@ def writing_detail(category, writing_id):
         abort(404)
     
     category_info = writing_categories[category]
+    related_writings = items  # All writings in the same category
     
     return render_template('writing_detail.html',
                          writing=writing,
                          category=category,
-                         category_info=category_info)
+                         category_info=category_info,
+                         related_writings=related_writings)
 
 @app.route("/api/projects")
 def get_projects():
