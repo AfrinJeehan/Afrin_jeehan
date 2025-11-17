@@ -219,6 +219,44 @@
         </div>
         {% endif %}
 
+        <!-- Key Modules (for OSAC Connect) -->
+        {% if project.key_modules %}
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3">
+                <i class="fas fa-cube text-blue-600"></i>
+                System Modules
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                {% for module in project.key_modules %}
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-puzzle-piece text-blue-600 dark:text-blue-400 mt-1"></i>
+                        <p class="text-slate-700 dark:text-slate-300">{{ module }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Use Cases (for OSAC Connect) -->
+        {% if project.use_cases %}
+        <div class="mb-12 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 p-8 rounded-2xl border border-cyan-200 dark:border-cyan-800">
+            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-3">
+                <i class="fas fa-briefcase text-cyan-600"></i>
+                Real-World Applications
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                {% for use_case in project.use_cases %}
+                <div class="flex items-start gap-3 bg-white dark:bg-slate-800 p-4 rounded-lg">
+                    <i class="fas fa-check-square text-cyan-600 dark:text-cyan-400 mt-1"></i>
+                    <p class="text-slate-700 dark:text-slate-300">{{ use_case }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
         <!-- Navigation -->
         <div class="flex gap-4 pt-8 border-t border-slate-200 dark:border-slate-700">
             <a href="{{ url_for('projects_page') }}" 
@@ -235,4 +273,3 @@
     </div>
 </section>
 {% endblock %}
-
