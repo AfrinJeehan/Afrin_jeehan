@@ -3,27 +3,100 @@
 {% block title %}Projects & Researches - Afrin Jeehan{% endblock %}
 
 {% block content %}
-<section class="py-20 bg-white dark:bg-slate-900">
+<!-- Hero Section -->
+<section class="pt-32 pb-12 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center mb-12">
-            <h1 class="text-4xl font-bold text-gradient mb-2">Projects & Researches</h1>
-            <p class="text-slate-600 dark:text-slate-400">Browse my selected projects and research work. Click any project to view full details.</p>
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Projects & Research
+            </h1>
+            <p class="text-xl text-slate-600 dark:text-slate-300 mb-4">
+                Explore my portfolio of innovative projects spanning AI/ML, web development, and full-stack solutions.
+            </p>
+            <p class="text-lg text-slate-500 dark:text-slate-400">
+                Each project demonstrates technical expertise, problem-solving skills, and real-world impact.
+            </p>
         </div>
+    </div>
+</section>
 
-        <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+<!-- Projects Grid -->
+<section class="py-16 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {% for p in projects %}
-            <article class="bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-2">{{ p.title }}</h3>
-                <p class="text-slate-600 dark:text-slate-300 mb-3">{{ p.description }}</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    {% for tech in p.technologies %}
-                    <span class="px-3 py-1 bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-300 rounded-full text-sm">{{ tech }}</span>
-                    {% endfor %}
+            <article class="group bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <!-- Category Badge -->
+                <div class="h-2 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                
+                <div class="p-6">
+                    <!-- Category Tag -->
+                    <div class="mb-4">
+                        <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-semibold uppercase tracking-wide">
+                            {{ p.category }}
+                        </span>
+                    </div>
+                    
+                    <!-- Title -->
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                        {{ p.title }}
+                    </h3>
+                    
+                    <!-- Description -->
+                    <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3 leading-relaxed">
+                        {{ p.description }}
+                    </p>
+                    
+                    <!-- Technologies -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        {% for tech in p.technologies[:4] %}
+                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded text-xs">
+                            {{ tech }}
+                        </span>
+                        {% endfor %}
+                        {% if p.technologies|length > 4 %}
+                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded text-xs">
+                            +{{ p.technologies|length - 4 }} more
+                        </span>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Quick Stats (if available) -->
+                    {% if p.outcomes %}
+                    <div class="mb-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                        <p class="text-sm text-green-700 dark:text-green-300 flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="font-semibold">{{ p.outcomes|length }} Key Outcomes Achieved</span>
+                        </p>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- CTA Button -->
+                    <a href="{{ url_for('project_detail', pid=loop.index0) }}" 
+                       class="flex items-center justify-center gap-2 w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg font-medium transition-all shadow-md hover:shadow-lg group">
+                        View Full Details
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
                 </div>
-                <a href="{{ url_for('project_detail', pid=loop.index0) }}" class="inline-block mt-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full">View details</a>
             </article>
             {% endfor %}
+        </div>
+
+        <!-- Call to Action -->
+        <div class="max-w-4xl mx-auto mt-16 text-center bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 p-8 rounded-2xl border border-blue-200 dark:border-slate-600">
+            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">
+                Interested in Collaboration?
+            </h2>
+            <p class="text-slate-600 dark:text-slate-300 mb-6">
+                I'm always open to discussing new projects, research opportunities, and innovative ideas.
+            </p>
+            <a href="{{ url_for('contact') }}" 
+               class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl">
+                <i class="fas fa-envelope"></i>
+                Get In Touch
+            </a>
         </div>
     </div>
 </section>
 {% endblock %}
+
