@@ -1,492 +1,220 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden neural-bg dark:bg-dark">
-    <div class="absolute inset-0 bg-gradient-to-b from-blue-50 to-transparent opacity-70 dark:opacity-30"></div>
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-4xl mx-auto">
-            <div class="mb-8 animate-float">
-                <div class="relative inline-block">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-                    <div class="relative w-48 h-48 mx-auto mb-6">
-                        <img src="{{ url_for('static', filename='images/profile.jpg') }}" 
-                             alt="Afrin Jeehan - Professional Photo" 
-                             class="w-full h-full rounded-full object-cover border-4 border-white dark:border-slate-700 shadow-2xl"
-                             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Ccircle cx=%22100%22 cy=%22100%22 r=%22100%22 fill=%22%232563eb%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%2260%22 font-family=%22Arial%22%3EAJ%3C/text%3E%3C/svg%3E'">
-                        <div class="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center border-4 border-white dark:border-slate-900 shadow-lg">
-                            <i class="fas fa-check text-white text-xl"></i>
+<section id="home" class="pt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 reveal">
+                <p class="kicker"><span class="w-2 h-2 rounded-full bg-brand-500 inline-block"></span>Portfolio</p>
+                <h1 class="section-heading text-4xl md:text-6xl font-extrabold tracking-tight text-ink-900 dark:text-white leading-tight">
+                    Business analysis that connects strategy, data, and execution.
+                </h1>
+                <p class="mt-5 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+                    I am Afrin Jeehan, combining Computer Science and Business Management to design solutions that are technically strong, stakeholder-centered, and measurable in impact.
+                </p>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#projects" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium transition-colors">View Selected Work</a>
+                    <a href="#contact" class="px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-ink-800 transition-colors">Start a Conversation</a>
+                </div>
+
+                <div class="mt-8 grid sm:grid-cols-3 gap-3 max-w-2xl">
+                    <div class="metric">
+                        <p class="text-2xl font-bold">60%</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Efficiency gain</p>
+                    </div>
+                    <div class="metric">
+                        <p class="text-2xl font-bold">90%</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Error reduction</p>
+                    </div>
+                    <div class="metric">
+                        <p class="text-2xl font-bold">25+</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">UAT participants</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 reveal">
+                <div class="surface-card p-6 md:p-8">
+                    <div class="flex items-center gap-4">
+                        <img src="{{ url_for('static', filename='images/profile.jpg') }}"
+                             alt="Afrin Jeehan"
+                             class="w-20 h-20 rounded-2xl object-cover border border-slate-200 dark:border-slate-700"
+                             onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                        <div class="hidden w-20 h-20 rounded-2xl bg-brand-600 text-white text-2xl font-bold items-center justify-center">AJ</div>
+                        <div>
+                            <p class="font-semibold text-lg">Afrin Jeehan</p>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Business Analyst · CS & BBM Undergraduate</p>
+                        </div>
+                    </div>
+                    <hr class="my-6 border-slate-200 dark:border-slate-700">
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-chart-line mt-1 text-brand-600"></i>
+                            <p class="text-slate-600 dark:text-slate-300">Translate complex requirements into practical product and process outcomes.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-users mt-1 text-brand-600"></i>
+                            <p class="text-slate-600 dark:text-slate-300">Align technical teams and business stakeholders through clear communication.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-database mt-1 text-brand-600"></i>
+                            <p class="text-slate-600 dark:text-slate-300">Use analytics and research to drive confident, measurable decisions.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-gradient animate-pulse-slow">
-                AFRIN JEEHAN
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-4">
-                BUSINESS ANALYST | CS &amp; BBM Undergraduate
-            </p>
-            <p class="text-lg text-slate-500 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-                Results-driven Business Analyst combining Computer Science technical depth with Business Management strategy to deliver data-driven solutions that drive real impact.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact" 
-                   class="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full 
-                          hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-                    Get in Touch
-                </a>
-                <a href="#projects" 
-                   class="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-full 
-                          hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-slate-800 transform hover:-translate-y-1 transition-all duration-300">
-                    View Projects
-                </a>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-4 reveal">
+                <p class="kicker">Profile</p>
+                <h2 class="section-heading text-3xl md:text-4xl font-bold">About Me</h2>
+                <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                    I work at the intersection of business analysis, product delivery, and data-informed strategy. My approach is collaborative, detail-driven, and impact-focused.
+                </p>
+            </div>
+            <div class="lg:col-span-8 grid md:grid-cols-2 gap-4 reveal">
+                <article class="surface-card p-5">
+                    <h3 class="font-semibold text-lg">Core Focus</h3>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Requirements engineering, stakeholder communication, and process optimization for scalable digital solutions.</p>
+                </article>
+                <article class="surface-card p-5">
+                    <h3 class="font-semibold text-lg">Work Style</h3>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Structured problem-solving with agile delivery, transparent documentation, and outcome-first decision making.</p>
+                </article>
+                <article class="surface-card p-5 md:col-span-2">
+                    <h3 class="font-semibold text-lg">Academic Path</h3>
+                    <ul class="mt-3 grid sm:grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300">
+                        <li class="rounded-lg border border-slate-200 dark:border-slate-700 p-3">BSc (Hons) in Computer Science and Technology · Uva Wellassa University</li>
+                        <li class="rounded-lg border border-slate-200 dark:border-slate-700 p-3">BBM General (External) · Uva Wellassa University</li>
+                        <li class="rounded-lg border border-slate-200 dark:border-slate-700 p-3 sm:col-span-2">Certificate: Research Methodology & Scientific Communication (2025)</li>
+                    </ul>
+                </article>
             </div>
         </div>
     </div>
 </section>
 
-<section id="achievements" class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold text-gradient mb-4">Key Achievements</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+<section id="projects" class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 reveal">
+            <div>
+                <p class="kicker">Highlights</p>
+                <h2 class="section-heading text-3xl md:text-4xl font-bold">Featured Projects</h2>
+            </div>
+            <a href="{{ url_for('projects_page') }}" class="text-brand-600 dark:text-brand-200 font-medium hover:underline">View complete project archive →</a>
         </div>
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
-                <div class="flex-shrink-0 p-3 bg-green-100 dark:bg-green-900/30 rounded-lg inline-block mb-4">
-                    <i class="fas fa-leaf text-green-600 dark:text-green-400 text-xl"></i>
-                </div>
-                <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">Sustainability &amp; Stakeholder Focused</h3>
-                <p class="text-slate-600 dark:text-slate-400 text-sm">Designed food waste reduction platform connecting 4 stakeholder groups, optimizing distribution efficiency by 60% and preventing food waste.</p>
-            </div>
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
-                <div class="flex-shrink-0 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg inline-block mb-4">
-                    <i class="fas fa-users text-blue-600 dark:text-blue-400 text-xl"></i>
-                </div>
-                <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">Cross-Functional Leadership</h3>
-                <p class="text-slate-600 dark:text-slate-400 text-sm">Directed 3 projects with diverse stakeholder groups (Clients, technical teams, end users), delivering solutions with 90% error reduction.</p>
-            </div>
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
-                <div class="flex-shrink-0 p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg inline-block mb-4">
-                    <i class="fas fa-flask text-purple-600 dark:text-purple-400 text-xl"></i>
-                </div>
-                <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">Research &amp; Innovation</h3>
-                <p class="text-slate-600 dark:text-slate-400 text-sm">Published findings on AI explainability and user trust, advancing industry understanding of transparent ML systems and developing business protocol for Surplus Food Management System.</p>
-            </div>
+
+        <div class="grid lg:grid-cols-3 gap-5">
+            <article class="surface-card p-6 reveal">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-600">OSAC Connect</p>
+                <h3 class="mt-2 text-xl font-semibold">Vehicle Management Platform</h3>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Led requirement discovery with 15+ stakeholders and coordinated UAT across 25+ participants, achieving 90% stakeholder satisfaction.</p>
+            </article>
+            <article class="surface-card p-6 reveal">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-600">Share Plate</p>
+                <h3 class="mt-2 text-xl font-semibold">Surplus Food Management</h3>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Designed stakeholder-centric workflows and data-driven matching logic that improved distribution efficiency by 60%.</p>
+            </article>
+            <article class="surface-card p-6 reveal">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-600">Explainable AI</p>
+                <h3 class="mt-2 text-xl font-semibold">Python Debugging Education</h3>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Published insights on transparency and trust in AI-driven learning, bridging pedagogy with explainable ML techniques.</p>
+            </article>
         </div>
     </div>
 </section>
 
-<section id="about" class="py-20 bg-white dark:bg-slate-900">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold text-gradient mb-4">About Me</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+<section id="skills" class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 reveal">
+            <p class="kicker">Capabilities</p>
+            <h2 class="section-heading text-3xl md:text-4xl font-bold">Skills & Competencies</h2>
         </div>
-        
-        <div class="max-w-5xl mx-auto">
-            <div class="grid md:grid-cols-5 gap-8 items-center">
-                <div class="md:col-span-2 flex justify-center">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                        <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-4 shadow-xl">
-                            <img src="{{ url_for('static', filename='images/profile.jpg') }}" 
-                                 alt="Afrin Jeehan" 
-                                 class="w-full h-auto rounded-xl object-cover"
-                                 onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 500%22%3E%3Crect width=%22400%22 height=%22500%22 fill=%22%232563eb%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%22100%22 font-family=%22Arial%22%3EAJ%3C/text%3E%3C/svg%3E'">
-                            <div class="mt-4 flex justify-center gap-3">
-                                <a href="#" class="w-10 h-10 bg-blue-100 dark:bg-slate-700 rounded-lg flex items-center justify-center hover:bg-blue-200 dark:hover:bg-slate-600 transition-colors">
-                                    <i class="fab fa-linkedin text-blue-600 dark:text-blue-400"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
-                                    <i class="fab fa-github text-slate-700 dark:text-slate-300"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-purple-100 dark:bg-slate-700 rounded-lg flex items-center justify-center hover:bg-purple-200 dark:hover:bg-slate-600 transition-colors">
-                                    <i class="fas fa-envelope text-purple-600 dark:text-purple-400"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="md:col-span-3">
-                    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
-                        Results-driven Business Analyst combining Computer Science technical depth with Business Management strategy to deliver data-driven solutions that drive real impact. Adept at translating complex data into clear, actionable insights using Python, Excel, and Power BI to support informed strategic decisions.
-                    </p>
-                    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
-                        Recognized for strong analytical problem-solving, stakeholder communication, and bridging business objectives with technical execution to deliver measurable organizational outcomes.
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
-                            <i class="fas fa-briefcase mr-2"></i>Business Analyst
-                        </span>
-                        <span class="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium">
-                            <i class="fas fa-chart-line mr-2"></i>Data Analytics
-                        </span>
-                        <span class="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
-                            <i class="fas fa-users mr-2"></i>Stakeholder Mgmt
-                        </span>
-                    </div>
-                </div>
-            </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <article class="surface-card p-5 reveal">
+                <h3 class="font-semibold">Business Analysis</h3>
+                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Requirements gathering, UAT, process optimization, stakeholder management.</p>
+            </article>
+            <article class="surface-card p-5 reveal">
+                <h3 class="font-semibold">Agile Delivery</h3>
+                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Sprint planning, backlog refinement, agile collaboration, iterative delivery.</p>
+            </article>
+            <article class="surface-card p-5 reveal">
+                <h3 class="font-semibold">Data & Analytics</h3>
+                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">SQL, Python, Power BI, Excel, reporting, insight communication.</p>
+            </article>
+            <article class="surface-card p-5 reveal">
+                <h3 class="font-semibold">Tools</h3>
+                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Jira, Postman, MySQL, Git, Figma, SAP.</p>
+            </article>
         </div>
     </div>
 </section>
 
-<section id="education" class="py-20 bg-slate-50 dark:bg-dark">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold text-gradient mb-4">Academic Qualifications</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
-        </div>
-        <div class="space-y-6 max-w-4xl mx-auto">
-            <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 p-3 bg-blue-100 dark:bg-slate-700 rounded-lg">
-                        <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-400"></i>
-                    </div>
-                    <div class="ml-4">
-                        <h4 class="font-semibold text-slate-800 dark:text-slate-200">BSc Hons in Computer Science and Technology</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Uva Wellassa University of Sri Lanka</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-500">2022 – Present</p>
-                    </div>
-                </div>
+<section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-8 reveal">
+            <div>
+                <p class="kicker">Writing</p>
+                <h2 class="section-heading text-3xl md:text-4xl font-bold">Featured Writings</h2>
             </div>
-            <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 p-3 bg-blue-100 dark:bg-slate-700 rounded-lg">
-                        <i class="fas fa-university text-blue-600 dark:text-blue-400"></i>
-                    </div>
-                    <div class="ml-4">
-                        <h4 class="font-semibold text-slate-800 dark:text-slate-200">Bachelor of Business Management General (External)</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Uva Wellassa University of Sri Lanka</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-500">2022 – Present</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 p-3 bg-blue-100 dark:bg-slate-700 rounded-lg">
-                        <i class="fas fa-award text-blue-600 dark:text-blue-400"></i>
-                    </div>
-                    <div class="ml-4">
-                        <h4 class="font-semibold text-slate-800 dark:text-slate-200">Certificate Course</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Research Methodology &amp; Scientific Communication</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-500">2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="projects" class="py-20 bg-white dark:bg-slate-900">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold text-gradient mb-4">Projects & Researches</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+            <a href="{{ url_for('writings_page') }}" class="text-brand-600 dark:text-brand-200 font-medium hover:underline">See all writings →</a>
         </div>
 
-        <div class="space-y-12">
-            <!-- OSAC Connect Project -->
-            <div class="p-8 bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-sm">
-                <h3 class="text-2xl font-semibold mb-2 text-slate-800 dark:text-slate-200">OSAC Connect – Vehicle Management Platform</h3>
-                <p class="text-slate-600 dark:text-slate-400 mb-4">Business Analyst - Front End Developer | Team Project | 300 Level</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Requirements Gathering</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Stakeholder Analysis</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">UAT</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">React.js</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Django REST</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">MySQL</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Google Maps API</span>
-                </div>
-                <ul class="space-y-2 text-slate-600 dark:text-slate-300">
-                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Elicited business requirements from 15+ stakeholders for multi-role booking system (Users, Admins, Owners), enabling real-time tracking that reduced workflow completion time by 40%.</li>
-                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Conducted competitive analysis of 8 platforms, identifying feature gaps and best practices to inform strategic positioning and product roadmap prioritization.</li>
-                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Coordinated UAT with 25+ participants across all user roles, validating system performance and achieving 90% stakeholder satisfaction rating.</li>
-                </ul>
-            </div>
-
-            <!-- Share Plate Project -->
-            <div class="p-8 bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-sm">
-                <h3 class="text-2xl font-semibold mb-2 text-slate-800 dark:text-slate-200">SHARE PLATE – Surplus Food Management System</h3>
-                <p class="text-slate-600 dark:text-slate-400 mb-4">Business Analyst - Front End Developer | Team Project | 200 Level</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Requirements Elicitation</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Process Flow</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Data Modelling</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">React.js</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">PHP</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">MySQL</span>
-                </div>
-                <ul class="space-y-2 text-slate-600 dark:text-slate-300">
-                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Led requirements gathering across 4 user personas (donors, businesses, recipients, administrators), documenting 50+ functional requirements aligned with sustainability objectives.</li>
-                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Designed data-driven matching algorithm optimizing distribution efficiency by 60%, preventing 2,000+ meal waste monthly through intelligent resource allocation.</li>
-                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Created end-to-end process flow diagrams identifying 5 critical bottlenecks, implementing solutions that reduced transaction time by 45%.</li>
-                </ul>
-            </div>
-
-            <!-- AI-Powered Python Debugging Project -->
-            <div class="p-8 bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-sm">
-                <h3 class="text-2xl font-semibold mb-2 text-slate-800 dark:text-slate-200">Explainable AI for Python Debugging Education | A LLM Approach</h3>
-                <p class="text-slate-600 dark:text-slate-400 mb-4">Business Analyst - Front End Developer | Team Project | 400 Level</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Gap Analysis</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Backlog Management</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Agile/Scrum</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">Python</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">LLM</span>
-                    <span class="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-slate-700 dark:text-blue-400 rounded-full text-sm">XAI (LIME/SHAP)</span>
-                </div>
-                <ul class="space-y-2 text-slate-600 dark:text-slate-300">
-                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Conducted requirements elicitation with 30+ educators and students, translating learning needs into 10 functional specifications for adaptive AI-powered system.</li>
-                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Designed data-driven algorithms achieving 35% improvement in skill retention and 90% error reduction through reinforcement learning validation framework.</li>
-                    <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Managed product backlog and facilitated agile sprints, performing gap analysis against 5 industry benchmarks to align solution with market standards.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="skills" class="py-20 bg-slate-50 dark:bg-dark">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold text-gradient mb-4">Skills &amp; Competencies</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
-                <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Business Analysis</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-tag">Requirements Gathering</span>
-                    <span class="skill-tag">Stakeholder Management</span>
-                    <span class="skill-tag">Business Communication</span>
-                    <span class="skill-tag">Gap Analysis</span>
-                    <span class="skill-tag">Process Optimization</span>
-                    <span class="skill-tag">User Acceptance Testing</span>
-                    <span class="skill-tag">User Story Development</span>
-                    <span class="skill-tag">Feasibility Analysis</span>
-                </div>
-            </div>
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
-                <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Agile / Scrum</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-tag">Agile/Scrum</span>
-                    <span class="skill-tag">Sprint Planning</span>
-                    <span class="skill-tag">Backlog Management</span>
-                    <span class="skill-tag">Process Mapping</span>
-                </div>
-            </div>
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
-                <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Data &amp; Analytics</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Python (Pandas)</span>
-                    <span class="skill-tag">Power BI</span>
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">Statistical Analysis</span>
-                    <span class="skill-tag">AI/ML Analytics</span>
-                </div>
-            </div>
-            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">
-                <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Tools</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-tag">Jira</span>
-                    <span class="skill-tag">Postman</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">SAP</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Featured Writings Section -->
-<section class="py-20 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-800 dark:to-slate-900">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold text-gradient mb-4">Featured Writings</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-600 mx-auto mb-6"></div>
-            <p class="text-lg text-slate-600 dark:text-slate-300">
-                Explore my thoughts on technology, creativity, and learning through articles, poems, essays, and more.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {% for writing in featured_writings %}
-            <article class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden 
-                           hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="h-2 bg-gradient-to-r from-{{ writing.color }}-400 to-{{ writing.color }}-600"></div>
-                
-                <div class="p-6">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-semibold px-3 py-1 rounded-full 
-                                   bg-{{ writing.color }}-100 dark:bg-{{ writing.color }}-900/30
-                                   text-{{ writing.color }}-700 dark:text-{{ writing.color }}-300">
-                            {{ writing.category_name }}
-                        </span>
-                        <span class="text-xs text-slate-500 dark:text-slate-400">
-                            <i class="far fa-clock mr-1"></i>{{ writing.read_time }}
-                        </span>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white line-clamp-2">
-                        {{ writing.title }}
-                    </h3>
-                    
-                    <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
-                        {{ writing.excerpt }}
-                    </p>
-                    
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-slate-500 dark:text-slate-400">
-                            {{ writing.date }}
-                        </span>
-                        <a href="{{ url_for('writing_detail', category=writing.category_key, writing_id=writing.id) }}" 
-                           class="text-{{ writing.color }}-600 dark:text-{{ writing.color }}-400 
-                                  hover:underline font-medium flex items-center gap-2">
-                            Read More
-                            <i class="fas fa-arrow-right text-sm"></i>
-                        </a>
-                    </div>
+            <article class="surface-card p-6 reveal">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-ink-800 text-slate-700 dark:text-slate-300">{{ writing.category_name }}</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">{{ writing.read_time }}</span>
                 </div>
+                <h3 class="text-lg font-semibold leading-snug">{{ writing.title }}</h3>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 line-clamp-3">{{ writing.excerpt }}</p>
+                <a href="{{ url_for('writing_detail', category=writing.category_key, writing_id=writing.id) }}" class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-brand-600 dark:text-brand-200 hover:underline">
+                    Read article <i class="fas fa-arrow-right text-xs"></i>
+                </a>
             </article>
             {% endfor %}
         </div>
-
-        <div class="text-center">
-            <a href="{{ url_for('writings_page') }}" 
-               class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 
-                      hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg 
-                      shadow-lg hover:shadow-xl transition-all duration-300">
-                <i class="fas fa-book-open"></i>
-                Explore All Writings
-            </a>
-        </div>
     </div>
 </section>
 
-<section id="references" class="py-20 bg-white dark:bg-slate-900">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold text-gradient mb-4">References</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-slate-700 rounded-full flex items-center justify-center">
-                        <i class="fas fa-user text-blue-600 dark:text-blue-400"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200">Mr. M. Janotheepan</h3>
-                        <p class="text-blue-600 dark:text-blue-400 text-sm font-medium">B.Sc. (Hons) in Computing and IS</p>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm">Lecturer – Uva Wellassa University</p>
-                        <a href="tel:+94777820899" class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            <i class="fas fa-phone mr-1"></i>+94 77 782 0899
-                        </a>
-                    </div>
+<section id="contact" class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="surface-card p-8 md:p-10 reveal">
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
+                <div class="md:col-span-1">
+                    <p class="kicker">Contact</p>
+                    <h2 class="section-heading text-3xl font-bold">Let’s Work Together</h2>
+                    <p class="mt-3 text-slate-600 dark:text-slate-300">Open to internships, collaboration opportunities, and impactful product work.</p>
                 </div>
-            </div>
-            <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-slate-700 rounded-full flex items-center justify-center">
-                        <i class="fas fa-user text-blue-600 dark:text-blue-400"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200">Mr. Usama Uzair</h3>
-                        <p class="text-blue-600 dark:text-blue-400 text-sm font-medium">Senior Software Engineer</p>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm">Icon Blocks Inc.</p>
-                        <a href="tel:+94777609615" class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            <i class="fas fa-phone mr-1"></i>+94 77 760 9615
-                        </a>
-                    </div>
+                <div class="md:col-span-2 grid sm:grid-cols-2 gap-4 text-sm">
+                    <a href="tel:+94752992096" class="rounded-lg border border-slate-200 dark:border-slate-700 p-4 hover:border-brand-500 transition-colors">
+                        <p class="font-semibold">Phone</p>
+                        <p class="text-slate-600 dark:text-slate-300 mt-1">+94 75 2992 096</p>
+                    </a>
+                    <a href="mailto:afrinjeehan.ajmal@gmail.com" class="rounded-lg border border-slate-200 dark:border-slate-700 p-4 hover:border-brand-500 transition-colors">
+                        <p class="font-semibold">Email</p>
+                        <p class="text-slate-600 dark:text-slate-300 mt-1">afrinjeehan.ajmal@gmail.com</p>
+                    </a>
+                    <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="rounded-lg border border-slate-200 dark:border-slate-700 p-4 hover:border-brand-500 transition-colors">
+                        <p class="font-semibold">LinkedIn</p>
+                        <p class="text-slate-600 dark:text-slate-300 mt-1">afrin-jeehan-29b949309</p>
+                    </a>
+                    <a href="https://github.com/AfrinJeehan" target="_blank" class="rounded-lg border border-slate-200 dark:border-slate-700 p-4 hover:border-brand-500 transition-colors">
+                        <p class="font-semibold">GitHub</p>
+                        <p class="text-slate-600 dark:text-slate-300 mt-1">AfrinJeehan</p>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<section id="contact" class="py-20 bg-white dark:bg-slate-900">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold text-gradient mb-4">Get in Touch</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
-        </div>
-
-        <div class="max-w-4xl mx-auto bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 shadow-sm">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-4">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <h3 class="contact-title">Phone</h3>
-                            <a href="tel:+94752992096" class="contact-link">+94 75 2992 096</a> / <a href="tel:+94718992096" class="contact-link">+94 71 8992 096</a>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <h3 class="contact-title">Email</h3>
-                            <a href="mailto:afrinjeehan.ajmal@gmail.com" class="contact-link">afrinjeehan.ajmal@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <h3 class="contact-title">Location</h3>
-                            <p class="text-slate-600 dark:text-slate-400">Kalmunai, Ampara.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-4">
-                        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-                        <div>
-                            <h3 class="contact-title">LinkedIn</h3>
-                            <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="contact-link">afrin-jeehan-29b949309</a>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="contact-icon"><i class="fab fa-github"></i></div>
-                        <div>
-                            <h3 class="contact-title">GitHub</h3>
-                            <a href="https://github.com/AfrinJeehan" target="_blank" class="contact-link">AfrinJeehan</a>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="contact-icon"><i class="fas fa-briefcase"></i></div>
-                        <div>
-                            <h3 class="contact-title">Portfolio</h3>
-                            <p class="text-slate-600 dark:text-slate-400">You are here!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{% endblock %}
-
-{% block extra_css %}
-<style>
-    .skill-tag {
-        @apply px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium dark:bg-slate-700 dark:text-blue-300;
-    }
-    .contact-icon {
-        @apply flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-slate-700 rounded-lg flex items-center justify-center;
-    }
-    .contact-icon i {
-        @apply text-blue-600 dark:text-blue-400 text-xl;
-    }
-    .contact-title {
-        @apply text-lg font-semibold text-slate-800 dark:text-slate-200;
-    }
-    .contact-link {
-        @apply text-blue-600 dark:text-blue-400 hover:underline;
-    }
-</style>
 {% endblock %}
