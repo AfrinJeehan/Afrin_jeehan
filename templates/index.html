@@ -1,220 +1,217 @@
 {% extends "layout.html" %}
+{% block title %}Afrin Jeehan — Business Analyst &amp; CS Student{% endblock %}
 
 {% block content %}
-<section id="home" class="pt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-        <div class="grid lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-7 reveal">
-                <p class="kicker"><span class="w-2 h-2 rounded-full bg-brand-500 inline-block"></span>Portfolio</p>
-                <h1 class="section-heading text-4xl md:text-6xl font-extrabold tracking-tight text-ink-900 dark:text-white leading-tight">
-                    Business analysis that connects strategy, data, and execution.
-                </h1>
-                <p class="mt-5 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
-                    I am Afrin Jeehan, combining Computer Science and Business Management to design solutions that are technically strong, stakeholder-centered, and measurable in impact.
-                </p>
-
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="#projects" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium transition-colors">View Selected Work</a>
-                    <a href="#contact" class="px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-ink-800 transition-colors">Start a Conversation</a>
-                </div>
-
-                <div class="mt-8 grid sm:grid-cols-3 gap-3 max-w-2xl">
-                    <div class="metric">
-                        <p class="text-2xl font-bold">60%</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">Efficiency gain</p>
-                    </div>
-                    <div class="metric">
-                        <p class="text-2xl font-bold">90%</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">Error reduction</p>
-                    </div>
-                    <div class="metric">
-                        <p class="text-2xl font-bold">25+</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">UAT participants</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lg:col-span-5 reveal">
-                <div class="surface-card p-6 md:p-8">
-                    <div class="flex items-center gap-4">
-                        <img src="{{ url_for('static', filename='images/profile.jpg') }}"
-                             alt="Afrin Jeehan"
-                             class="w-20 h-20 rounded-2xl object-cover border border-slate-200 dark:border-slate-700"
-                             onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
-                        <div class="hidden w-20 h-20 rounded-2xl bg-brand-600 text-white text-2xl font-bold items-center justify-center">AJ</div>
-                        <div>
-                            <p class="font-semibold text-lg">Afrin Jeehan</p>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Business Analyst · CS & BBM Undergraduate</p>
-                        </div>
-                    </div>
-                    <hr class="my-6 border-slate-200 dark:border-slate-700">
-                    <div class="space-y-4 text-sm">
-                        <div class="flex items-start gap-3">
-                            <i class="fas fa-chart-line mt-1 text-brand-600"></i>
-                            <p class="text-slate-600 dark:text-slate-300">Translate complex requirements into practical product and process outcomes.</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <i class="fas fa-users mt-1 text-brand-600"></i>
-                            <p class="text-slate-600 dark:text-slate-300">Align technical teams and business stakeholders through clear communication.</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <i class="fas fa-database mt-1 text-brand-600"></i>
-                            <p class="text-slate-600 dark:text-slate-300">Use analytics and research to drive confident, measurable decisions.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- ========== HERO ========== -->
+<section id="home" class="hero">
+  <div class="hero-grid">
+    <!-- Left: text -->
+    <div class="hero-text reveal">
+      <span class="badge"><i class="fas fa-circle-dot"></i> Available for Internships &amp; Collaborations</span>
+      <h1>
+        Hi, I'm <span class="gradient-text">Afrin Jeehan</span>
+        <span class="wave" aria-hidden="true">👋</span>
+      </h1>
+      <p class="hero-sub">
+        I turn complex business challenges into actionable insights<br>
+        through <span id="typing-text" class="typing gradient-text"></span>
+      </p>
+      <div class="hero-cta">
+        <a href="{{ url_for('projects_page') }}" class="btn btn-primary"><i class="fas fa-rocket"></i> View My Work</a>
+        <a href="{{ url_for('contact') }}" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+      </div>
     </div>
+
+    <!-- Right: profile / image -->
+    <div class="hero-visual reveal-scale">
+      <div class="profile-wrap">
+        <div class="profile-ring"></div>
+        <div class="profile-img-wrap">
+          <img src="{{ url_for('static', filename='images/profile.jpg') }}"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+               alt="Afrin Jeehan" class="profile-img">
+          <div class="profile-fallback" style="display:none;">AJ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat counters -->
+  <div class="stat-row reveal">
+    <div class="stat-card">
+      <div class="stat-number" data-count="8">0</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" data-count="17">0</div>
+      <div class="stat-label">Articles Written</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" data-count="6">0</div>
+      <div class="stat-label">Writing Categories</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" data-count="2">0</div>
+      <div class="stat-label">Degrees Pursued</div>
+    </div>
+  </div>
 </section>
 
-<section id="about" class="py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-8">
-            <div class="lg:col-span-4 reveal">
-                <p class="kicker">Profile</p>
-                <h2 class="section-heading text-3xl md:text-4xl font-bold">About Me</h2>
-                <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
-                    I work at the intersection of business analysis, product delivery, and data-informed strategy. My approach is collaborative, detail-driven, and impact-focused.
-                </p>
-            </div>
-            <div class="lg:col-span-8 grid md:grid-cols-2 gap-4 reveal">
-                <article class="surface-card p-5">
-                    <h3 class="font-semibold text-lg">Core Focus</h3>
-                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Requirements engineering, stakeholder communication, and process optimization for scalable digital solutions.</p>
-                </article>
-                <article class="surface-card p-5">
-                    <h3 class="font-semibold text-lg">Work Style</h3>
-                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Structured problem-solving with agile delivery, transparent documentation, and outcome-first decision making.</p>
-                </article>
-                <article class="surface-card p-5 md:col-span-2">
-                    <h3 class="font-semibold text-lg">Academic Path</h3>
-                    <ul class="mt-3 grid sm:grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300">
-                        <li class="rounded-lg border border-slate-200 dark:border-slate-700 p-3">BSc (Hons) in Computer Science and Technology · Uva Wellassa University</li>
-                        <li class="rounded-lg border border-slate-200 dark:border-slate-700 p-3">BBM General (External) · Uva Wellassa University</li>
-                        <li class="rounded-lg border border-slate-200 dark:border-slate-700 p-3 sm:col-span-2">Certificate: Research Methodology & Scientific Communication (2025)</li>
-                    </ul>
-                </article>
-            </div>
-        </div>
+<!-- ========== ABOUT ========== -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">About Me</span>
+      <h2>Bridging Technology &amp; Business</h2>
+      <p>Crafting data-driven strategies from an interdisciplinary foundation</p>
     </div>
+
+    <div class="about-grid">
+      <div class="about-card glass reveal-left">
+        <i class="fas fa-graduation-cap about-icon"></i>
+        <h3>Education</h3>
+        <p><strong>BSc (Hons) in Computer Science &amp; Technology</strong><br>Uva Wellassa University of Sri Lanka</p>
+        <p><strong>BBM General (External)</strong><br>Uva Wellassa University of Sri Lanka</p>
+        <p class="muted">Research Methodology Certificate (2025)</p>
+      </div>
+      <div class="about-card glass reveal">
+        <i class="fas fa-bullseye about-icon"></i>
+        <h3>Focus Areas</h3>
+        <ul class="tag-list">
+          <li>Business Analysis</li>
+          <li>Data-Driven Strategy</li>
+          <li>Process Optimization</li>
+          <li>Stakeholder Management</li>
+          <li>AI / Machine Learning</li>
+          <li>Software Engineering</li>
+        </ul>
+      </div>
+      <div class="about-card glass reveal-left">
+        <i class="fas fa-heart about-icon"></i>
+        <h3>Interests</h3>
+        <p>I'm passionate about writing — articles, poems, analytical essays — and enjoy exploring creative intersections between art and technology. I live in Kalmunai, Sri Lanka, and am continuously seeking to grow through real-world projects and research.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="projects" class="py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 reveal">
-            <div>
-                <p class="kicker">Highlights</p>
-                <h2 class="section-heading text-3xl md:text-4xl font-bold">Featured Projects</h2>
-            </div>
-            <a href="{{ url_for('projects_page') }}" class="text-brand-600 dark:text-brand-200 font-medium hover:underline">View complete project archive →</a>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-5">
-            <article class="surface-card p-6 reveal">
-                <p class="text-xs font-semibold uppercase tracking-wider text-brand-600">OSAC Connect</p>
-                <h3 class="mt-2 text-xl font-semibold">Vehicle Management Platform</h3>
-                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Led requirement discovery with 15+ stakeholders and coordinated UAT across 25+ participants, achieving 90% stakeholder satisfaction.</p>
-            </article>
-            <article class="surface-card p-6 reveal">
-                <p class="text-xs font-semibold uppercase tracking-wider text-brand-600">Share Plate</p>
-                <h3 class="mt-2 text-xl font-semibold">Surplus Food Management</h3>
-                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Designed stakeholder-centric workflows and data-driven matching logic that improved distribution efficiency by 60%.</p>
-            </article>
-            <article class="surface-card p-6 reveal">
-                <p class="text-xs font-semibold uppercase tracking-wider text-brand-600">Explainable AI</p>
-                <h3 class="mt-2 text-xl font-semibold">Python Debugging Education</h3>
-                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Published insights on transparency and trust in AI-driven learning, bridging pedagogy with explainable ML techniques.</p>
-            </article>
-        </div>
+<!-- ========== FEATURED PROJECTS ========== -->
+<section id="projects" class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">Portfolio</span>
+      <h2>Featured Projects</h2>
+      <p>Selected works demonstrating analytical, technical, and creative thinking</p>
     </div>
+
+    <div class="project-grid stagger-children">
+      {% for project in projects[:3] %}
+      <a href="{{ url_for('project_detail', pid=loop.index0) }}" class="project-card glass">
+        <div class="project-card-header">
+          <span class="project-category">{{ project.category }}</span>
+        </div>
+        <h3 class="project-card-title">{{ project.title }}</h3>
+        <p class="project-card-desc">{{ project.description }}</p>
+        <div class="project-card-tags">
+          {% for t in project.technologies[:4] %}
+          <span class="tag">{{ t }}</span>
+          {% endfor %}
+        </div>
+        <span class="project-card-link">View Case Study <i class="fas fa-arrow-right"></i></span>
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="section-cta reveal">
+      <a href="{{ url_for('projects_page') }}" class="btn btn-primary">See All Projects <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
 </section>
 
-<section id="skills" class="py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-8 reveal">
-            <p class="kicker">Capabilities</p>
-            <h2 class="section-heading text-3xl md:text-4xl font-bold">Skills & Competencies</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <article class="surface-card p-5 reveal">
-                <h3 class="font-semibold">Business Analysis</h3>
-                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Requirements gathering, UAT, process optimization, stakeholder management.</p>
-            </article>
-            <article class="surface-card p-5 reveal">
-                <h3 class="font-semibold">Agile Delivery</h3>
-                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Sprint planning, backlog refinement, agile collaboration, iterative delivery.</p>
-            </article>
-            <article class="surface-card p-5 reveal">
-                <h3 class="font-semibold">Data & Analytics</h3>
-                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">SQL, Python, Power BI, Excel, reporting, insight communication.</p>
-            </article>
-            <article class="surface-card p-5 reveal">
-                <h3 class="font-semibold">Tools</h3>
-                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Jira, Postman, MySQL, Git, Figma, SAP.</p>
-            </article>
-        </div>
+<!-- ========== SKILLS ========== -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">Competencies</span>
+      <h2>Skills &amp; Expertise</h2>
+      <p>Core capabilities powering every project I deliver</p>
     </div>
+
+    <div class="skill-grid stagger-children">
+      <div class="skill-card glass">
+        <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Business Analysis</h3>
+        <p>Requirements engineering, stakeholder analysis, SWOT/PESTLE, process mapping, gap analysis, and feasibility studies.</p>
+      </div>
+      <div class="skill-card glass">
+        <div class="skill-icon"><i class="fas fa-database"></i></div>
+        <h3>Data &amp; Analytics</h3>
+        <p>Python, SQL, Power BI, Pandas, NumPy, scikit-learn, ARIMA, Logistic Regression, Random Forest, sentiment analysis.</p>
+      </div>
+      <div class="skill-card glass">
+        <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>Software Engineering</h3>
+        <p>Python, Java, Flask, Spring Boot, MySQL, PHP, React, Agile & Scrum practices, system design, and API development.</p>
+      </div>
+      <div class="skill-card glass">
+        <div class="skill-icon"><i class="fas fa-brain"></i></div>
+        <h3>AI &amp; Machine Learning</h3>
+        <p>NLP, deep learning, LangChain, Gemini API, embeddings, FAISS, RAG architecture, intelligent debugging systems.</p>
+      </div>
+      <div class="skill-card glass">
+        <div class="skill-icon"><i class="fas fa-pen-nib"></i></div>
+        <h3>Research &amp; Writing</h3>
+        <p>Analytical essays, literature reviews, creative writing, interview guides, industry trend analysis, and academic reports.</p>
+      </div>
+      <div class="skill-card glass">
+        <div class="skill-icon"><i class="fas fa-people-arrows"></i></div>
+        <h3>Soft Skills</h3>
+        <p>Stakeholder communication, cross-functional collaboration, critical thinking, time management, and presentation design.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-end justify-between mb-8 reveal">
-            <div>
-                <p class="kicker">Writing</p>
-                <h2 class="section-heading text-3xl md:text-4xl font-bold">Featured Writings</h2>
-            </div>
-            <a href="{{ url_for('writings_page') }}" class="text-brand-600 dark:text-brand-200 font-medium hover:underline">See all writings →</a>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {% for writing in featured_writings %}
-            <article class="surface-card p-6 reveal">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-ink-800 text-slate-700 dark:text-slate-300">{{ writing.category_name }}</span>
-                    <span class="text-xs text-slate-500 dark:text-slate-400">{{ writing.read_time }}</span>
-                </div>
-                <h3 class="text-lg font-semibold leading-snug">{{ writing.title }}</h3>
-                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 line-clamp-3">{{ writing.excerpt }}</p>
-                <a href="{{ url_for('writing_detail', category=writing.category_key, writing_id=writing.id) }}" class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-brand-600 dark:text-brand-200 hover:underline">
-                    Read article <i class="fas fa-arrow-right text-xs"></i>
-                </a>
-            </article>
-            {% endfor %}
-        </div>
+<!-- ========== FEATURED WRITINGS ========== -->
+<section id="writings" class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">Writings</span>
+      <h2>Recent Publications</h2>
+      <p>Thoughts, essays, poems, and deep dives from my creative world</p>
     </div>
+
+    <div class="writing-grid stagger-children">
+      {% for w in featured_writings[:3] %}
+      <a href="{{ url_for('writing_detail', category=w.category_key, writing_id=w.id) }}" class="writing-card glass">
+        <span class="writing-badge">{{ w.category_name }}</span>
+        <h3 class="writing-title">{{ w.title }}</h3>
+        <p class="writing-excerpt">{{ w.excerpt }}</p>
+        <div class="writing-meta">
+          <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
+          <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="section-cta reveal">
+      <a href="{{ url_for('writings_page') }}" class="btn btn-primary">Explore All Writings <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
 </section>
 
-<section id="contact" class="py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="surface-card p-8 md:p-10 reveal">
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
-                <div class="md:col-span-1">
-                    <p class="kicker">Contact</p>
-                    <h2 class="section-heading text-3xl font-bold">Let’s Work Together</h2>
-                    <p class="mt-3 text-slate-600 dark:text-slate-300">Open to internships, collaboration opportunities, and impactful product work.</p>
-                </div>
-                <div class="md:col-span-2 grid sm:grid-cols-2 gap-4 text-sm">
-                    <a href="tel:+94752992096" class="rounded-lg border border-slate-200 dark:border-slate-700 p-4 hover:border-brand-500 transition-colors">
-                        <p class="font-semibold">Phone</p>
-                        <p class="text-slate-600 dark:text-slate-300 mt-1">+94 75 2992 096</p>
-                    </a>
-                    <a href="mailto:afrinjeehan.ajmal@gmail.com" class="rounded-lg border border-slate-200 dark:border-slate-700 p-4 hover:border-brand-500 transition-colors">
-                        <p class="font-semibold">Email</p>
-                        <p class="text-slate-600 dark:text-slate-300 mt-1">afrinjeehan.ajmal@gmail.com</p>
-                    </a>
-                    <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="rounded-lg border border-slate-200 dark:border-slate-700 p-4 hover:border-brand-500 transition-colors">
-                        <p class="font-semibold">LinkedIn</p>
-                        <p class="text-slate-600 dark:text-slate-300 mt-1">afrin-jeehan-29b949309</p>
-                    </a>
-                    <a href="https://github.com/AfrinJeehan" target="_blank" class="rounded-lg border border-slate-200 dark:border-slate-700 p-4 hover:border-brand-500 transition-colors">
-                        <p class="font-semibold">GitHub</p>
-                        <p class="text-slate-600 dark:text-slate-300 mt-1">AfrinJeehan</p>
-                    </a>
-                </div>
-            </div>
-        </div>
+<!-- ========== CTA ========== -->
+<section id="contact-cta" class="section">
+  <div class="container">
+    <div class="cta-box glass reveal-scale">
+      <h2>Let's Work Together</h2>
+      <p>I'm actively looking for internship opportunities and collaborative projects.<br>Let's connect and build something remarkable.</p>
+      <div class="cta-actions">
+        <a href="{{ url_for('contact') }}" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
+        <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
     </div>
+  </div>
 </section>
 {% endblock %}

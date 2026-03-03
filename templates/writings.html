@@ -1,122 +1,63 @@
 {% extends "layout.html" %}
+{% block title %}Writings — Afrin Jeehan{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="pt-32 pb-16 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                My Writings
-            </h1>
-            <p class="text-xl text-slate-600 dark:text-slate-300 mb-8">
-                Exploring ideas through articles, poetry, essays, and creative thinking. 
-                A collection of thoughts on technology, learning, and life.
-            </p>
-        </div>
-    </div>
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb reveal">
+      <a href="{{ url_for('index') }}">Home</a>
+      <span class="sep">/</span>
+      <span>Writings</span>
+    </nav>
+    <h1 class="page-title reveal">Writings &amp; Publications</h1>
+    <p class="page-sub reveal">Articles, poems, essays, and insights across creative and analytical domains</p>
+  </div>
 </section>
 
-<!-- Categories Grid -->
-<section class="py-16 bg-white dark:bg-slate-900">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-slate-800 dark:text-white">
-            Explore by Category
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {% for cat_key, cat_info in writing_categories.items() %}
-            <a href="{{ url_for('writings_category', category=cat_key) }}" 
-               class="group block p-8 rounded-2xl border-2 border-{{ cat_info.color }}-200 dark:border-{{ cat_info.color }}-800 
-                      bg-gradient-to-br from-{{ cat_info.color }}-50 to-white dark:from-slate-800 dark:to-slate-900
-                      hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-16 h-16 rounded-xl bg-{{ cat_info.color }}-100 dark:bg-{{ cat_info.color }}-900/30 
-                                flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <i class="fas {{ cat_info.icon }} text-3xl text-{{ cat_info.color }}-600 dark:text-{{ cat_info.color }}-400"></i>
-                    </div>
-                    <span class="text-sm font-semibold px-3 py-1 rounded-full 
-                                 bg-{{ cat_info.color }}-200 dark:bg-{{ cat_info.color }}-800 
-                                 text-{{ cat_info.color }}-800 dark:text-{{ cat_info.color }}-200">
-                        {{ writings[cat_key]|length }} items
-                    </span>
-                </div>
-                
-                <h3 class="text-2xl font-bold mb-3 text-slate-800 dark:text-white group-hover:text-{{ cat_info.color }}-600 
-                           dark:group-hover:text-{{ cat_info.color }}-400 transition-colors">
-                    {{ cat_info.name }}
-                </h3>
-                
-                <p class="text-slate-600 dark:text-slate-300 mb-4">
-                    {{ cat_info.description }}
-                </p>
-                
-                <div class="flex items-center text-{{ cat_info.color }}-600 dark:text-{{ cat_info.color }}-400 font-medium">
-                    <span>Explore {{ cat_info.name }}</span>
-                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
+<!-- Categories -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">Browse by Category</span>
+      <h2>Explore Topics</h2>
     </div>
+
+    <div class="category-grid stagger-children">
+      {% for key, cat in writing_categories.items() %}
+      <a href="{{ url_for('writings_category', category=key) }}" class="category-card glass">
+        <div class="category-icon"><i class="fas {{ cat.icon }}"></i></div>
+        <h3>{{ cat.name }}</h3>
+        <p>{{ cat.description }}</p>
+        <span class="category-count">{{ writings[key]|length }} {{ 'article' if writings[key]|length == 1 else 'articles' }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
-<!-- Featured Writings -->
-<section class="py-16 bg-slate-50 dark:bg-slate-800">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-slate-800 dark:text-white">
-            Featured Writings
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {% for category_name, items in writings.items() %}
-                {% for writing in items[:1] %}
-                <article class="bg-white dark:bg-slate-900 rounded-xl shadow-lg overflow-hidden 
-                               hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="h-2 bg-gradient-to-r from-{{ writing_categories[category_name].color }}-400 to-{{ writing_categories[category_name].color }}-600"></div>
-                    
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full 
-                                       bg-{{ writing_categories[category_name].color }}-100 dark:bg-{{ writing_categories[category_name].color }}-900/30
-                                       text-{{ writing_categories[category_name].color }}-700 dark:text-{{ writing_categories[category_name].color }}-300">
-                                {{ writing_categories[category_name].name }}
-                            </span>
-                            <span class="text-xs text-slate-500 dark:text-slate-400">
-                                <i class="far fa-clock mr-1"></i>{{ writing.read_time }}
-                            </span>
-                        </div>
-                        
-                        <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">
-                            {{ writing.title }}
-                        </h3>
-                        
-                        <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
-                            {{ writing.excerpt }}
-                        </p>
-                        
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-slate-500 dark:text-slate-400">
-                                {{ writing.date }}
-                            </span>
-                            <a href="{{ url_for('writing_detail', category=category_name, writing_id=writing.id) }}" 
-                               class="text-{{ writing_categories[category_name].color }}-600 dark:text-{{ writing_categories[category_name].color }}-400 
-                                      hover:underline font-medium flex items-center gap-2">
-                                Read More
-                                <i class="fas fa-arrow-right text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                {% endfor %}
-            {% endfor %}
-        </div>
-        
-        <div class="text-center mt-12">
-            <p class="text-slate-600 dark:text-slate-400 text-lg">
-                Browse categories above to discover more writings
-            </p>
-        </div>
+<!-- All Writings -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">All Writings</span>
+      <h2>Complete Collection</h2>
     </div>
+
+    <div class="writing-grid stagger-children">
+      {% for cat_key, items in writings.items() %}
+        {% for w in items %}
+        <a href="{{ url_for('writing_detail', category=cat_key, writing_id=w.id) }}" class="writing-card glass">
+          <span class="writing-badge">{{ writing_categories[cat_key].name }}</span>
+          <h3 class="writing-title">{{ w.title }}</h3>
+          <p class="writing-excerpt">{{ w.excerpt }}</p>
+          <div class="writing-meta">
+            <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
+            <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
+          </div>
+        </a>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
 </section>
 {% endblock %}

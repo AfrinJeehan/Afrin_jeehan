@@ -4,6 +4,10 @@ from datetime import datetime
 
 app = Flask(__name__, static_folder='static')
 
+@app.context_processor
+def inject_globals():
+    return {'current_year': datetime.now().year}
+
 # Project data
 projects = [
     {
@@ -1288,7 +1292,7 @@ def project_detail(pid):
     if pid < 0 or pid >= len(projects):
         abort(404)
     project = projects[pid]
-    return render_template('project_detail.html', project=project, pid=pid)
+    return render_template('project_detail.html', project=project, pid=pid, projects=projects)
 
 
 @app.route('/contact')

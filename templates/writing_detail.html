@@ -1,154 +1,79 @@
 {% extends "layout.html" %}
+{% block title %}{{ writing.title }} — Afrin Jeehan{% endblock %}
 
 {% block content %}
-<!-- Article Header -->
-<article class="pt-32 pb-16">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- Breadcrumb -->
-            <nav class="mb-8">
-                <ol class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-                    <li><a href="{{ url_for('writings_page') }}" class="hover:text-{{ category_info.color }}-600 dark:hover:text-{{ category_info.color }}-400">Writings</a></li>
-                    <li><i class="fas fa-chevron-right text-xs"></i></li>
-                    <li><a href="{{ url_for('writings_category', category=category) }}" class="hover:text-{{ category_info.color }}-600 dark:hover:text-{{ category_info.color }}-400">{{ category_info.name }}</a></li>
-                    <li><i class="fas fa-chevron-right text-xs"></i></li>
-                    <li class="text-{{ category_info.color }}-600 dark:text-{{ category_info.color }}-400 font-medium">{{ writing.title }}</li>
-                </ol>
-            </nav>
-            
-            <!-- Category Badge -->
-            <div class="flex items-center gap-3 mb-6">
-                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full 
-                           bg-{{ category_info.color }}-100 dark:bg-{{ category_info.color }}-900/30 
-                           text-{{ category_info.color }}-700 dark:text-{{ category_info.color }}-300 font-medium">
-                    <i class="fas {{ category_info.icon }}"></i>
-                    {{ category_info.name }}
-                </span>
-            </div>
-            
-            <!-- Title -->
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-800 dark:text-white leading-tight">
-                {{ writing.title }}
-            </h1>
-            
-            <!-- Meta Info -->
-            <div class="flex flex-wrap items-center gap-4 mb-8 text-slate-600 dark:text-slate-400">
-                <span class="flex items-center gap-2">
-                    <i class="far fa-calendar"></i>
-                    {{ writing.date }}
-                </span>
-                <span class="text-slate-300 dark:text-slate-600">•</span>
-                <span class="flex items-center gap-2">
-                    <i class="far fa-clock"></i>
-                    {{ writing.read_time }}
-                </span>
-            </div>
-            
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-2 mb-8">
-                {% for tag in writing.tags %}
-                <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 
-                           text-slate-600 dark:text-slate-300 text-sm">
-                    #{{ tag }}
-                </span>
-                {% endfor %}
-            </div>
-            
-            <hr class="border-slate-200 dark:border-slate-700 mb-12">
-            
-            <!-- Article Content -->
-            <div class="prose prose-lg dark:prose-invert max-w-none
-                        prose-headings:text-slate-800 dark:prose-headings:text-white
-                        prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-p:leading-relaxed
-                        prose-a:text-{{ category_info.color }}-600 dark:prose-a:text-{{ category_info.color }}-400
-                        prose-strong:text-slate-800 dark:prose-strong:text-white
-                        prose-code:text-{{ category_info.color }}-600 dark:prose-code:text-{{ category_info.color }}-400
-                        prose-blockquote:border-{{ category_info.color }}-500
-                        {% if category == 'poems' %}text-center{% endif %}">
-                {{ writing.content|safe }}
-            </div>
-            
-            <hr class="border-slate-200 dark:border-slate-700 my-12">
-            
-            <!-- Share Section -->
-            <div class="flex items-center justify-between flex-wrap gap-4">
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-2">
-                        Share this {{ category_info.name|replace('s', '') }}
-                    </h3>
-                    <div class="flex gap-3">
-                        <button class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white 
-                                     flex items-center justify-center transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-                        <button class="w-10 h-10 rounded-full bg-blue-800 hover:bg-blue-900 text-white 
-                                     flex items-center justify-center transition-colors">
-                            <i class="fab fa-linkedin"></i>
-                        </button>
-                        <button class="w-10 h-10 rounded-full bg-slate-600 hover:bg-slate-700 text-white 
-                                     flex items-center justify-center transition-colors">
-                            <i class="fas fa-link"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <a href="{{ url_for('writings_category', category=category) }}" 
-                   class="inline-flex items-center gap-2 px-6 py-3 rounded-lg
-                          bg-{{ category_info.color }}-600 hover:bg-{{ category_info.color }}-700 
-                          text-white font-medium transition-colors">
-                    <i class="fas fa-arrow-left"></i>
-                    More {{ category_info.name }}
-                </a>
-            </div>
-        </div>
-    </div>
-</article>
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb reveal">
+      <a href="{{ url_for('index') }}">Home</a>
+      <span class="sep">/</span>
+      <a href="{{ url_for('writings_page') }}">Writings</a>
+      <span class="sep">/</span>
+      <a href="{{ url_for('writings_category', category=category) }}">{{ category_info.name }}</a>
+      <span class="sep">/</span>
+      <span>{{ writing.title }}</span>
+    </nav>
+  </div>
+</section>
 
-<!-- Related Writings -->
-<section class="py-16 bg-slate-50 dark:bg-slate-800">
-    <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-8 text-slate-800 dark:text-white">
-                More from {{ category_info.name }}
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {% for related in related_writings[:3] %}
-                {% if related.id != writing.id %}
-                <a href="{{ url_for('writing_detail', category=category, writing_id=related.id) }}" 
-                   class="group block bg-white dark:bg-slate-900 rounded-xl shadow-md hover:shadow-xl 
-                          border border-slate-200 dark:border-slate-700 overflow-hidden
-                          transition-all duration-300 hover:-translate-y-1">
-                    
-                    <div class="h-2 bg-gradient-to-r from-{{ category_info.color }}-400 to-{{ category_info.color }}-600"></div>
-                    
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3 text-sm text-slate-500 dark:text-slate-400">
-                            <i class="far fa-clock"></i>
-                            {{ related.read_time }}
-                        </div>
-                        
-                        <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-white 
-                                   group-hover:text-{{ category_info.color }}-600 dark:group-hover:text-{{ category_info.color }}-400 
-                                   transition-colors line-clamp-2">
-                            {{ related.title }}
-                        </h3>
-                        
-                        <p class="text-slate-600 dark:text-slate-300 line-clamp-3 mb-4">
-                            {{ related.excerpt }}
-                        </p>
-                        
-                        <div class="flex items-center text-{{ category_info.color }}-600 dark:text-{{ category_info.color }}-400 
-                                    font-medium">
-                            <span>Read More</span>
-                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-                        </div>
-                    </div>
-                </a>
-                {% endif %}
-                {% endfor %}
-            </div>
+<section class="section detail-section">
+  <div class="container">
+    <article class="writing-detail reveal">
+      <!-- Header -->
+      <div class="writing-detail-header">
+        <span class="writing-badge">{{ category_info.name }}</span>
+        <h1>{{ writing.title }}</h1>
+        <div class="writing-meta">
+          <span><i class="fas fa-calendar"></i> {{ writing.date }}</span>
+          <span><i class="fas fa-clock"></i> {{ writing.read_time }}</span>
         </div>
+        {% if writing.tags %}
+        <div class="detail-tags">
+          {% for tag in writing.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Content -->
+      <div class="writing-content glass {% if category == 'poems' %}poem-content{% endif %}">
+        {{ writing.content | replace('\n\n', '</p><p>') | replace('\n', '<br>') | safe }}
+      </div>
+
+      <!-- Share -->
+      <div class="share-section">
+        <span>Share this:</span>
+        <a href="https://twitter.com/intent/tweet?text={{ writing.title | urlencode }}" target="_blank" class="social-link" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=" target="_blank" class="social-link" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </article>
+
+    <!-- Related Writings -->
+    {% set others = related_writings | rejectattr('id', 'equalto', writing.id) | list %}
+    {% if others %}
+    <div class="related-section reveal">
+      <h2>More from {{ category_info.name }}</h2>
+      <div class="writing-grid stagger-children">
+        {% for w in others[:3] %}
+        <a href="{{ url_for('writing_detail', category=category, writing_id=w.id) }}" class="writing-card glass">
+          <span class="writing-badge">{{ category_info.name }}</span>
+          <h3 class="writing-title">{{ w.title }}</h3>
+          <p class="writing-excerpt">{{ w.excerpt }}</p>
+          <div class="writing-meta">
+            <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
+            <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
     </div>
+    {% endif %}
+
+    <div class="detail-nav reveal">
+      <a href="{{ url_for('writings_category', category=category) }}" class="btn btn-outline"><i class="fas fa-arrow-left"></i> {{ category_info.name }}</a>
+      <a href="{{ url_for('writings_page') }}" class="btn btn-primary">All Writings</a>
+    </div>
+  </div>
 </section>
 {% endblock %}
