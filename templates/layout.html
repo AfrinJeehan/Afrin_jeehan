@@ -4,19 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Afrin Jeehan — Portfolio{% endblock %}</title>
-  <meta name="description" content="Afrin Jeehan — Business Analyst, CS & BBM Undergraduate. Strategy, data, and execution.">
+  <meta name="description" content="Afrin Jeehan — Business Analyst, CS & BBM Undergraduate. Editorial portfolio.">
 
-  <!-- Preload theme -->
-  <script>
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    }
-  </script>
-
-  <!-- Fonts -->
+  <!-- Fonts (loaded via CSS @import as well, this is a backup preconnect) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!-- Styles -->
@@ -24,56 +16,33 @@
   {% block extra_css %}{% endblock %}
 </head>
 <body>
-  <!-- Ambient background -->
-  <div class="ambient" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-  <div class="grid-overlay" aria-hidden="true"></div>
 
   <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="{{ url_for('index') }}" class="logo">
-        <div class="logo-mark">AJ</div>
-        <div class="logo-text">
-          <div class="name">Afrin Jeehan</div>
-          <div class="role">Business Analyst &middot; CS &amp; BBM</div>
-        </div>
-      </a>
+      <a href="{{ url_for('index') }}" class="logo">Afrin Jeehan</a>
 
-      <nav class="nav-desktop" aria-label="Main">
-        <a class="nav-link" href="{{ url_for('index') }}#home">Home</a>
-        <a class="nav-link" href="{{ url_for('index') }}#about">About</a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a class="nav-link" href="{{ url_for('index') }}">CV</a>
         <a class="nav-link" href="{{ url_for('projects_page') }}">Projects</a>
         <a class="nav-link" href="{{ url_for('writings_page') }}">Writings</a>
-        <a class="nav-link" href="{{ url_for('index') }}#skills">Skills</a>
         <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
       </nav>
 
-      <div class="header-actions">
-        <button id="theme-toggle" type="button" class="icon-btn" aria-label="Toggle dark mode">
-          <i id="icon-sun" class="fas fa-sun hidden"></i>
-          <i id="icon-moon" class="fas fa-moon hidden"></i>
-        </button>
-        <button id="mobile-menu-btn" type="button" class="icon-btn mobile-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+      <button id="mobile-menu-btn" type="button" class="mobile-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
 
-    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
-      <a class="mobile-link" href="{{ url_for('index') }}#home">Home</a>
-      <a class="mobile-link" href="{{ url_for('index') }}#about">About</a>
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+      <a class="mobile-link" href="{{ url_for('index') }}">CV</a>
       <a class="mobile-link" href="{{ url_for('projects_page') }}">Projects</a>
       <a class="mobile-link" href="{{ url_for('writings_page') }}">Writings</a>
-      <a class="mobile-link" href="{{ url_for('index') }}#skills">Skills</a>
       <a class="mobile-link" href="{{ url_for('contact') }}">Contact</a>
     </nav>
   </header>
 
-  <!-- Content -->
+  <!-- Main Content -->
   <main>
     {% block content %}{% endblock %}
   </main>
@@ -81,17 +50,13 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-info">
-        <h3>Afrin Jeehan</h3>
-        <p>Business Analyst | CS &amp; BBM Undergraduate</p>
-      </div>
-      <div class="footer-socials">
-        <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/AfrinJeehan" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:afrinjeehan.ajmal@gmail.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <div class="footer-copy">&copy; {{ current_year }} Afrin Jeehan. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/AfrinJeehan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:afrinjeehan.ajmal@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
-    <div class="footer-copy">&copy; {{ current_year }} Afrin Jeehan. All rights reserved.</div>
   </footer>
 
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>

@@ -2,64 +2,49 @@
 {% block title %}Contact — Afrin Jeehan{% endblock %}
 
 {% block content %}
-<section class="page-hero">
-  <div class="container">
-    <nav class="breadcrumb reveal">
-      <a href="{{ url_for('index') }}">Home</a>
-      <span class="sep">/</span>
-      <span>Contact</span>
-    </nav>
-    <h1 class="page-title reveal">Get in Touch</h1>
-    <p class="page-sub reveal">Let's connect and explore opportunities together</p>
+<div class="container">
+  <div class="page-header">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">CV</a> <span>/</span> Contact</p>
+    <h1 class="page-title">Contact</h1>
+    <p class="page-subtitle">Open to internships, collaborations, and meaningful conversations.</p>
   </div>
-</section>
+</div>
 
-<section class="section">
-  <div class="container">
-    <div class="contact-grid stagger-children">
-      <div class="contact-card glass">
-        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-        <h3>Phone</h3>
-        <a href="tel:+94752992096">+94 75 2992 096</a>
+<div class="container"><hr class="divider" style="margin-top:2rem;"></div>
+
+<div class="container">
+  <div class="contact-section">
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value"><a href="tel:+94771234567">+94 77 123 4567</a></div>
       </div>
-      <div class="contact-card glass">
-        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-        <h3>Email</h3>
-        <a href="mailto:afrinjeehan.ajmal@gmail.com">afrinjeehan.ajmal@gmail.com</a>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <div class="contact-label">Email</div>
+        <div class="contact-value"><a href="mailto:afrinjeehan.ajmal@gmail.com">afrinjeehan.ajmal@gmail.com</a></div>
       </div>
-      <div class="contact-card glass">
-        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-        <h3>Location</h3>
-        <p>Kalmunai, Ampara<br>Sri Lanka</p>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Kalmunai, Sri Lanka</div>
       </div>
     </div>
 
-    <div class="social-section glass reveal">
-      <h2>Connect on Social</h2>
-      <div class="social-grid">
-        <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="social-card">
-          <i class="fab fa-linkedin"></i>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://github.com/AfrinJeehan" target="_blank" class="social-card">
-          <i class="fab fa-github"></i>
-          <span>GitHub</span>
-        </a>
-        <a href="mailto:afrinjeehan.ajmal@gmail.com" class="social-card">
-          <i class="fas fa-envelope"></i>
-          <span>Email</span>
-        </a>
-      </div>
+    <div class="social-row">
+      <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="social-link">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/AfrinJeehan" target="_blank" class="social-link">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="mailto:afrinjeehan.ajmal@gmail.com" class="social-link">
+        <i class="fas fa-envelope"></i> Email
+      </a>
     </div>
 
-    <div class="cta-box glass reveal-scale" style="margin-top:3rem;">
-      <h2>Open to Opportunities</h2>
-      <p>I'm actively seeking internship positions and collaborative projects in business analysis, data analytics, and software development. If you think we'd work well together, I'd love to hear from you.</p>
-      <div class="cta-actions">
-        <a href="mailto:afrinjeehan.ajmal@gmail.com" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Email</a>
-        <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      </div>
-    </div>
   </div>
-</section>
+</div>
 {% endblock %}

@@ -2,78 +2,61 @@
 {% block title %}{{ writing.title }} — Afrin Jeehan{% endblock %}
 
 {% block content %}
-<section class="page-hero">
+<div class="writing-detail">
   <div class="container">
-    <nav class="breadcrumb reveal">
-      <a href="{{ url_for('index') }}">Home</a>
-      <span class="sep">/</span>
-      <a href="{{ url_for('writings_page') }}">Writings</a>
-      <span class="sep">/</span>
-      <a href="{{ url_for('writings_category', category=category) }}">{{ category_info.name }}</a>
-      <span class="sep">/</span>
-      <span>{{ writing.title }}</span>
-    </nav>
-  </div>
-</section>
 
-<section class="section detail-section">
-  <div class="container">
-    <article class="writing-detail reveal">
-      <!-- Header -->
-      <div class="writing-detail-header">
-        <span class="writing-badge">{{ category_info.name }}</span>
-        <h1>{{ writing.title }}</h1>
-        <div class="writing-meta">
-          <span><i class="fas fa-calendar"></i> {{ writing.date }}</span>
-          <span><i class="fas fa-clock"></i> {{ writing.read_time }}</span>
-        </div>
-        {% if writing.tags %}
-        <div class="detail-tags">
-          {% for tag in writing.tags %}
-          <span class="tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
+    <!-- Header -->
+    <div class="writing-detail-header">
+      <p class="breadcrumb">
+        <a href="{{ url_for('index') }}">CV</a> <span>/</span>
+        <a href="{{ url_for('writings_page') }}">Writings</a> <span>/</span>
+        <a href="{{ url_for('writings_category', category=category) }}">{{ category_info.name }}</a>
+      </p>
+      <span class="writing-category-label">{{ category_info.name }}</span>
+      <h1 class="writing-detail-title">{{ writing.title }}</h1>
+      <div class="writing-detail-meta">
+        <span><i class="fas fa-calendar"></i> {{ writing.date }}</span>
+        <span><i class="fas fa-clock"></i> {{ writing.read_time }}</span>
       </div>
+    </div>
 
-      <!-- Content -->
-      <div class="writing-content glass {% if category == 'poems' %}poem-content{% endif %}">
+    <hr class="divider">
+
+    <!-- Body -->
+    <div class="writing-detail-body">
+      {% if category == 'poems' %}
+        <div class="poem-content">{{ writing.content }}</div>
+      {% else %}
         {{ writing.content | replace('\n\n', '</p><p>') | replace('\n', '<br>') | safe }}
-      </div>
+      {% endif %}
 
-      <!-- Share -->
-      <div class="share-section">
-        <span>Share this:</span>
-        <a href="https://twitter.com/intent/tweet?text={{ writing.title | urlencode }}" target="_blank" class="social-link" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=" target="_blank" class="social-link" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <!-- Tags -->
+      {% if writing.tags %}
+      <div class="writing-tags">
+        {% for t in writing.tags %}
+        <span class="tag">{{ t }}</span>
+        {% endfor %}
       </div>
-    </article>
+      {% endif %}
+    </div>
 
     <!-- Related Writings -->
     {% set others = related_writings | rejectattr('id', 'equalto', writing.id) | list %}
     {% if others %}
-    <div class="related-section reveal">
-      <h2>More from {{ category_info.name }}</h2>
-      <div class="writing-grid stagger-children">
-        {% for w in others[:3] %}
-        <a href="{{ url_for('writing_detail', category=category, writing_id=w.id) }}" class="writing-card glass">
-          <span class="writing-badge">{{ category_info.name }}</span>
-          <h3 class="writing-title">{{ w.title }}</h3>
-          <p class="writing-excerpt">{{ w.excerpt }}</p>
-          <div class="writing-meta">
-            <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
-            <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
-          </div>
-        </a>
-        {% endfor %}
+    <div class="related-section">
+      <h3>More in {{ category_info.name }}</h3>
+      {% for w in others[:3] %}
+      <div class="writing-listing">
+        <h3 style="font-size:1rem;"><a href="{{ url_for('writing_detail', category=category, writing_id=w.id) }}">{{ w.title }}</a></h3>
+        <div class="writing-meta">
+          <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
+          <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
+        </div>
       </div>
+      {% endfor %}
     </div>
     {% endif %}
 
-    <div class="detail-nav reveal">
-      <a href="{{ url_for('writings_category', category=category) }}" class="btn btn-outline"><i class="fas fa-arrow-left"></i> {{ category_info.name }}</a>
-      <a href="{{ url_for('writings_page') }}" class="btn btn-primary">All Writings</a>
-    </div>
   </div>
-</section>
+</div>
 {% endblock %}

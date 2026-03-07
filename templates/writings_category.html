@@ -2,47 +2,38 @@
 {% block title %}{{ category_info.name }} — Writings — Afrin Jeehan{% endblock %}
 
 {% block content %}
-<section class="page-hero">
-  <div class="container">
-    <nav class="breadcrumb reveal">
-      <a href="{{ url_for('index') }}">Home</a>
-      <span class="sep">/</span>
-      <a href="{{ url_for('writings_page') }}">Writings</a>
-      <span class="sep">/</span>
-      <span>{{ category_info.name }}</span>
-    </nav>
-    <h1 class="page-title reveal"><i class="fas {{ category_info.icon }}"></i> {{ category_info.name }}</h1>
-    <p class="page-sub reveal">{{ category_info.description }}</p>
+<div class="container">
+  <div class="page-header">
+    <p class="breadcrumb">
+      <a href="{{ url_for('index') }}">CV</a> <span>/</span>
+      <a href="{{ url_for('writings_page') }}">Writings</a> <span>/</span>
+      {{ category_info.name }}
+    </p>
+    <h1 class="page-title">{{ category_info.name }}</h1>
+    <p class="page-subtitle">{{ category_info.description }}</p>
   </div>
-</section>
+</div>
 
-<section class="section">
-  <div class="container">
+<div class="container"><hr class="divider" style="margin-top:2rem;"></div>
+
+<div class="container">
+  <div class="writings-section">
     {% if items %}
-    <div class="writing-grid stagger-children">
       {% for w in items %}
-      <a href="{{ url_for('writing_detail', category=category, writing_id=w.id) }}" class="writing-card glass">
-        <span class="writing-badge">{{ category_info.name }}</span>
-        <h3 class="writing-title">{{ w.title }}</h3>
+      <div class="writing-listing">
+        <h3><a href="{{ url_for('writing_detail', category=category, writing_id=w.id) }}">{{ w.title }}</a></h3>
         <p class="writing-excerpt">{{ w.excerpt }}</p>
         <div class="writing-meta">
           <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
           <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
         </div>
-      </a>
+      </div>
       {% endfor %}
-    </div>
     {% else %}
-    <div class="empty-state glass">
-      <i class="fas fa-feather-alt"></i>
-      <h3>No writings yet</h3>
-      <p>Stay tuned — new content coming soon!</p>
-    </div>
+      <div class="empty-state">
+        <p>No writings in this category yet.</p>
+      </div>
     {% endif %}
-
-    <div class="section-cta reveal">
-      <a href="{{ url_for('writings_page') }}" class="btn btn-outline"><i class="fas fa-arrow-left"></i> All Categories</a>
-    </div>
   </div>
-</section>
+</div>
 {% endblock %}

@@ -2,37 +2,34 @@
 {% block title %}Projects — Afrin Jeehan{% endblock %}
 
 {% block content %}
-<section class="page-hero">
-  <div class="container">
-    <nav class="breadcrumb reveal">
-      <a href="{{ url_for('index') }}">Home</a>
-      <span class="sep">/</span>
-      <span>Projects</span>
-    </nav>
-    <h1 class="page-title reveal">All Projects</h1>
-    <p class="page-sub reveal">A curated collection of analytical, technical, and research-driven work</p>
+<div class="container">
+  <div class="page-header">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">CV</a> <span>/</span> Projects</p>
+    <h1 class="page-title">Projects</h1>
+    <p class="page-subtitle">Case studies in business analysis, AI research, and full-stack development.</p>
   </div>
-</section>
+</div>
 
-<section class="section">
-  <div class="container">
-    <div class="project-grid stagger-children">
-      {% for project in projects %}
-      <a href="{{ url_for('project_detail', pid=loop.index0) }}" class="project-card glass">
-        <div class="project-card-header">
-          <span class="project-category">{{ project.category }}</span>
+<div class="container"><hr class="divider" style="margin-top:2rem;"></div>
+
+<div class="container">
+  <div class="projects-list">
+    {% for project in projects %}
+    <div class="project-listing">
+      <div class="project-listing-inner">
+        <div>
+          <h3><a href="{{ url_for('project_detail', pid=loop.index0) }}">{{ project.title }}</a></h3>
+          <p class="project-listing-desc">{{ project.description }}</p>
+          <div class="project-listing-tags">
+            {% for t in project.technologies[:5] %}
+            <span class="tag">{{ t }}</span>
+            {% endfor %}
+          </div>
         </div>
-        <h3 class="project-card-title">{{ project.title }}</h3>
-        <p class="project-card-desc">{{ project.description }}</p>
-        <div class="project-card-tags">
-          {% for t in project.technologies[:5] %}
-          <span class="tag">{{ t }}</span>
-          {% endfor %}
-        </div>
-        <span class="project-card-link">View Case Study <i class="fas fa-arrow-right"></i></span>
-      </a>
-      {% endfor %}
+        <div class="project-listing-category">{{ project.category }}</div>
+      </div>
     </div>
+    {% endfor %}
   </div>
-</section>
+</div>
 {% endblock %}

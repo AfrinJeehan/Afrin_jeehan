@@ -2,62 +2,45 @@
 {% block title %}Writings — Afrin Jeehan{% endblock %}
 
 {% block content %}
-<section class="page-hero">
-  <div class="container">
-    <nav class="breadcrumb reveal">
-      <a href="{{ url_for('index') }}">Home</a>
-      <span class="sep">/</span>
-      <span>Writings</span>
-    </nav>
-    <h1 class="page-title reveal">Writings &amp; Publications</h1>
-    <p class="page-sub reveal">Articles, poems, essays, and insights across creative and analytical domains</p>
+<div class="container">
+  <div class="page-header">
+    <p class="breadcrumb"><a href="{{ url_for('index') }}">CV</a> <span>/</span> Writings</p>
+    <h1 class="page-title">Writings</h1>
+    <p class="page-subtitle">Articles, essays, poems, and analytical deep dives.</p>
   </div>
-</section>
+</div>
+
+<div class="container"><hr class="divider" style="margin-top:2rem;"></div>
 
 <!-- Categories -->
-<section class="section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-badge">Browse by Category</span>
-      <h2>Explore Topics</h2>
-    </div>
-
-    <div class="category-grid stagger-children">
+<div class="container">
+  <div class="writings-section">
+    <div class="section-label" style="margin-top:0.5rem;">Categories</div>
+    <div class="category-grid">
       {% for key, cat in writing_categories.items() %}
-      <a href="{{ url_for('writings_category', category=key) }}" class="category-card glass">
-        <div class="category-icon"><i class="fas {{ cat.icon }}"></i></div>
+      <a href="{{ url_for('writings_category', category=key) }}" class="category-item">
         <h3>{{ cat.name }}</h3>
         <p>{{ cat.description }}</p>
-        <span class="category-count">{{ writings[key]|length }} {{ 'article' if writings[key]|length == 1 else 'articles' }}</span>
+        <span class="category-count">{{ writings[key]|length }} piece{{ 's' if writings[key]|length != 1 else '' }}</span>
       </a>
       {% endfor %}
     </div>
-  </div>
-</section>
 
-<!-- All Writings -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-badge">All Writings</span>
-      <h2>Complete Collection</h2>
-    </div>
-
-    <div class="writing-grid stagger-children">
-      {% for cat_key, items in writings.items() %}
-        {% for w in items %}
-        <a href="{{ url_for('writing_detail', category=cat_key, writing_id=w.id) }}" class="writing-card glass">
-          <span class="writing-badge">{{ writing_categories[cat_key].name }}</span>
-          <h3 class="writing-title">{{ w.title }}</h3>
-          <p class="writing-excerpt">{{ w.excerpt }}</p>
-          <div class="writing-meta">
-            <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
-            <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
-          </div>
-        </a>
-        {% endfor %}
+    <!-- All Writings -->
+    <div class="section-label">All Writings</div>
+    {% for category_key, items in writings.items() %}
+      {% for w in items %}
+      <div class="writing-listing">
+        <h3><a href="{{ url_for('writing_detail', category=category_key, writing_id=w.id) }}">{{ w.title }}</a></h3>
+        <p class="writing-excerpt">{{ w.excerpt }}</p>
+        <div class="writing-meta">
+          <span><i class="fas fa-folder"></i> {{ writing_categories[category_key].name }}</span>
+          <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
+          <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
+        </div>
+      </div>
       {% endfor %}
-    </div>
+    {% endfor %}
   </div>
-</section>
+</div>
 {% endblock %}
