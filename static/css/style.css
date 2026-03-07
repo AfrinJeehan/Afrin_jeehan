@@ -186,9 +186,13 @@ p:last-child { margin-bottom: 0; }
 
 .hero-layout {
   display: grid;
-  grid-template-columns: 1fr 250px;
-  gap: 3rem;
-  align-items: start;
+  /* Increased photo width slightly for better presence */
+  grid-template-columns: 1fr 300px; 
+  /* Reduced gap from 3rem to 1.5rem to bring them closer */
+  gap: 1.5rem; 
+  /* Changed from 'start' to 'center' to align the photo with your text block */
+  align-items: center; 
+  margin-top: 2rem;
 }
 
 .hero-name {
@@ -200,7 +204,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .hero-title {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -258,18 +262,43 @@ p:last-child { margin-bottom: 0; }
 }
 .hero-tagline strong { font-style: normal; font-weight: 700; color: var(--text); }
 
-/* Photo */
-.hero-photo { position: relative; }
+/* Photo - Best Matching "Integrated" Style */
+.hero-photo {
+  position: relative;
+  overflow: hidden; /* Necessary for background effect */
+  border-radius: 24px; /* Softens the sharp corners significantly */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* A very soft, modern depth */
+  border: 1px solid rgba(0, 0, 0, 0.03); /* Minimal border to define edges against cream background */
+  
+  /* Adds a very subtle tint behind the image to bridge the color gap */
+  background: linear-gradient(135deg, var(--bg) 0%, rgba(0,0,0,0.02) 100%);
+  
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+  will-change: transform, box-shadow; /* Optimization */
+}
+
 .hero-photo img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
+  width: 125%;
+  aspect-ratio: 3 / 4; /* Maintains professional composition */
   object-fit: cover;
   object-position: top center;
-  filter: grayscale(15%);
-  transition: filter 0.5s, transform 0.5s var(--ease);
+  
+  /* Reduced grayscale to make it feel less harsh from the start */
+  filter: grayscale(10%); 
+  transition: filter 0.6s var(--ease), transform 0.6s var(--ease);
 }
-.hero-photo:hover img { filter: grayscale(0%); transform: scale(1.02); }
 
+/* Updated Hover Interaction for a "Floating" Feel */
+.hero-photo:hover {
+  transform: translateY(-8px) rotate(-1deg); /* Slight lift and natural tilt */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12); /* Deepens shadow as it lifts */
+}
+
+.hero-photo:hover img {
+  filter: grayscale(0%); /* Full color on interaction */
+}
+
+/* Match fallback to the new soft shape */
 .hero-photo-fallback {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -281,9 +310,8 @@ p:last-child { margin-bottom: 0; }
   font-size: 3.5rem;
   font-weight: 700;
   color: var(--border-light);
-  border: 1px solid var(--border-light);
+  border-radius: 24px; /* Matches new image shape */
 }
-
 /* ══════════════════════════════════════════════════════
    STAT STRIP
    ══════════════════════════════════════════════════════ */
