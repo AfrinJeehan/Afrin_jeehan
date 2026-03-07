@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Temp / IDE
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Claude temp dirs
+tmpclaude-*/
