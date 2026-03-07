@@ -1295,6 +1295,11 @@ def project_detail(pid):
     return render_template('project_detail.html', project=project, pid=pid, projects=projects)
 
 
+@app.route('/cv')
+def cv():
+    return send_from_directory('static', 'Afrin_Jeehan_CV.pdf')
+
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
