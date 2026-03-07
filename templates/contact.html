@@ -4,47 +4,36 @@
 {% block content %}
 <div class="container">
   <div class="page-header">
-    <p class="breadcrumb"><a href="{{ url_for('index') }}">CV</a> <span>/</span> Contact</p>
-    <h1 class="page-title">Contact</h1>
-    <p class="page-subtitle">Open to internships, collaborations, and meaningful conversations.</p>
+    <h1 class="page-title reveal">Contact</h1>
+    <p class="page-subtitle reveal">Open to opportunities, collaborations &amp; conversations.</p>
   </div>
 </div>
 
-<div class="container"><hr class="divider" style="margin-top:2rem;"></div>
+<hr class="divider">
 
-<div class="container">
-  <div class="contact-section">
-
-    <div class="contact-grid">
-      <div class="contact-item">
-        <i class="fas fa-phone"></i>
-        <div class="contact-label">Phone</div>
-        <div class="contact-value"><a href="tel:+94771234567">+94 77 123 4567</a></div>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <div class="contact-label">Email</div>
-        <div class="contact-value"><a href="mailto:afrinjeehan.ajmal@gmail.com">afrinjeehan.ajmal@gmail.com</a></div>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <div class="contact-label">Location</div>
-        <div class="contact-value">Kalmunai, Sri Lanka</div>
-      </div>
+<div class="container contact-section">
+  <div class="contact-grid stagger">
+    <div class="contact-item stagger-item">
+      <i class="fas fa-phone"></i>
+      <p class="contact-label">Phone</p>
+      <p class="contact-value">+94 XX XXX XXXX</p>
     </div>
-
-    <div class="social-row">
-      <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="social-link">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://github.com/AfrinJeehan" target="_blank" class="social-link">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a href="mailto:afrinjeehan.ajmal@gmail.com" class="social-link">
-        <i class="fas fa-envelope"></i> Email
-      </a>
+    <div class="contact-item stagger-item">
+      <i class="fas fa-envelope"></i>
+      <p class="contact-label">Email</p>
+      <p class="contact-value"><a href="mailto:afrinjeehan@example.com">afrinjeehan@example.com</a></p>
     </div>
+    <div class="contact-item stagger-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <p class="contact-label">Location</p>
+      <p class="contact-value">Sri Lanka</p>
+    </div>
+  </div>
 
+  <div class="social-row reveal">
+    <a href="https://linkedin.com/in/afrinjeehan" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    <a href="https://github.com/afrinjeehan" target="_blank" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+    <a href="mailto:afrinjeehan@example.com" class="social-link"><i class="fas fa-envelope"></i> Email</a>
   </div>
 </div>
 {% endblock %}

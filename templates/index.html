@@ -1,245 +1,210 @@
 {% extends "layout.html" %}
-{% block title %}Afrin Jeehan — Business Analyst &amp; CS Student{% endblock %}
+{% block title %}Afrin Jeehan — Portfolio{% endblock %}
 
 {% block content %}
-<!-- ════════════════ HERO ════════════════ -->
+<!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="container">
     <div class="hero-layout">
-      <div class="hero-content">
+      <div class="reveal">
         <h1 class="hero-name">AFRIN JEEHAN</h1>
-        <p class="hero-title">BUSINESS ANALYST &ensp;|&ensp; CS &amp; BBM Undergraduate</p>
+        <p class="hero-title">BUSINESS ANALYST &amp; BUSINESS INTELLIGENCE ENTHUSIAST</p>
 
         <div class="hero-links">
-          <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" class="link-item">
-            <i class="fab fa-linkedin"></i> LinkedIn
+          <a href="https://linkedin.com/in/afrinjeehan" target="_blank" class="link-item">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
           </a>
-          <a href="mailto:afrinjeehan.ajmal@gmail.com" class="link-item">
-            <i class="fas fa-envelope"></i> afrinjeehan.ajmal@gmail.com
+          <a href="mailto:afrinjeehan@example.com" class="link-item">
+            <i class="fas fa-envelope"></i> Email
           </a>
-          <a href="#profile" class="btn-cv">
-            <i class="fas fa-file-alt"></i> View My CV
-          </a>
+          <a href="#" class="btn-cv"><i class="fas fa-file-alt"></i> View CV</a>
         </div>
 
-        <p class="hero-caption">
-          Where data meets decision-making, that's where I operate. Armed with dual degrees
-          in Computer Science and Business Management, I've engineered solutions that improved
-          distribution efficiency by <strong>60%</strong>, slashed errors by <strong>90%</strong>,
-          and cut workflow overhead by <strong>40%</strong>&thinsp;—&thinsp;with published AI research
-          to back it all up. I don't analyze problems from the sidelines. I build the solutions.
+        <p class="hero-tagline">
+          Building <strong>AI-powered solutions</strong> and data-driven platforms
+          that bridge technology with real-world impact.
         </p>
       </div>
 
-      <div class="hero-photo">
-        <img src="{{ url_for('static', filename='images/profile.jpg') }}"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-             alt="Afrin Jeehan">
+      <div class="hero-photo reveal-right">
+        <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Afrin Jeehan"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="hero-photo-fallback" style="display:none;">AJ</div>
+      </div>
+    </div>
+
+    <!-- Stat Strip -->
+    <div class="stat-strip reveal">
+      <div class="stat-item">
+        <div class="stat-number" data-target="8" data-suffix="+">0+</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="6">0</div>
+        <div class="stat-label">Tech Domains</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="17" data-suffix="+">0+</div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="3">0</div>
+        <div class="stat-label">Degrees</div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="container"><hr class="divider"></div>
+<hr class="divider">
 
-<!-- ════════════════ PROFILE ════════════════ -->
-<section id="profile" class="cv-section">
-  <div class="container">
-    <div class="cv-section-title">Profile</div>
-    <p class="cv-text">
-      A results-driven Business Analyst and Computer Science undergraduate with proven ability to translate
-      complex business requirements into measurable, data-backed solutions. Currently pursuing dual degrees
-      — BSc (Hons) in Computer Science &amp; Technology and BBM — at Uva Wellassa University of Sri Lanka.
-      Demonstrated impact across three real-world projects spanning AI research, food-tech, and fleet management,
-      combining stakeholder management, Agile methodologies, and advanced analytics with a strong foundation
-      in software engineering. Published AI researcher with expertise in explainable AI, process optimization,
-      and cross-functional collaboration.
-    </p>
-  </div>
-</section>
-
-<div class="container"><hr class="divider"></div>
-
-<!-- ════════════════ KEY ACHIEVEMENTS ════════════════ -->
+<!-- ═══ KEY ACHIEVEMENTS ═══ -->
 <section class="cv-section">
   <div class="container">
-    <div class="cv-section-title">Key Achievements</div>
-    <ul class="achievement-list">
-      <li>
-        Designed and deployed <strong>Share Plate</strong>, a surplus food management system that improved
-        distribution efficiency by 60%, reducing food waste by 2,500 kg within three months and achieving
-        a 92% user satisfaction rate across 500+ donations.
-      </li>
-      <li>
-        Built an <strong>AI-powered debugging education platform</strong> achieving 90% error detection accuracy
-        through fine-tuned language models with explainable AI (LIME/SHAP), reducing average debugging time
-        by 45% for 100+ concurrent users.
-      </li>
-      <li>
-        Developed <strong>OSAC Connect</strong>, an intelligent fleet management system that reduced workflow
-        overhead by 40% through automated dispatching and real-time GPS tracking, improving vehicle utilization
-        from 62% to 84%.
-      </li>
+    <h2 class="section-title reveal">Key Achievements</h2>
+    <ul class="achievement-list stagger">
+      <li class="stagger-item"><strong>AI Debugging Platform</strong> — 87% error detection accuracy, 45% faster debugging for students</li>
+      <li class="stagger-item"><strong>500+ food donations</strong> facilitated via Share Plate; 2,500 kg waste reduced in 3 months</li>
+      <li class="stagger-item"><strong>Fleet optimization</strong> — 38% less idle time, 22% fuel savings via OSAC Connect</li>
     </ul>
   </div>
 </section>
 
-<div class="container"><hr class="divider"></div>
+<hr class="divider">
 
-<!-- ════════════════ PROJECTS & SKILLS (Two-Column) ════════════════ -->
+<!-- ═══ PROJECTS & SKILLS ═══ -->
 <section class="cv-section">
   <div class="container">
     <div class="two-col">
+      <!-- Left: Featured Projects -->
+      <div class="reveal-left">
+        <h2 class="section-title">Featured Projects</h2>
 
-      <!-- LEFT: Projects & Research -->
-      <div>
-        <div class="cv-section-title">Projects &amp; Research</div>
-
+        {% for p in projects[:3] %}
         <div class="project-item">
-          <h3><a href="{{ url_for('project_detail', pid=1) }}">Share Plate — Surplus Food Management System</a></h3>
-          <p class="project-sub">React.js, PHP, MySQL, Google Maps API</p>
-          <ul class="project-bullets">
-            <li>Full-stack web platform connecting food donors with recipients in real-time</li>
-            <li>Facilitated 500+ donations; reduced food waste by 2,500 kg in 3 months</li>
-            <li>Smart matching algorithm with location-based donor-recipient pairing</li>
-            <li>92% user satisfaction; partnerships with 25+ restaurants and 15+ NGOs</li>
-          </ul>
-          <a href="{{ url_for('project_detail', pid=1) }}" class="project-link">View Full Case Study →</a>
+          <h3><a href="/projects/{{ loop.index0 }}">{{ p.title }}</a></h3>
+          <p class="project-sub">{{ p.category }} · {{ p.technologies[:3]|join(', ') }}</p>
+          <p class="project-oneliner">{{ p.description[:120] }}{% if p.description|length > 120 %}…{% endif %}</p>
+          <a href="/projects/{{ loop.index0 }}" class="project-link">View Case Study →</a>
         </div>
-
-        <div class="project-item">
-          <h3><a href="{{ url_for('project_detail', pid=2) }}">OSAC Connect — Vehicle Fleet Management</a></h3>
-          <p class="project-sub">React.js, Django REST Framework, MySQL, WebSocket</p>
-          <ul class="project-bullets">
-            <li>Enterprise-grade fleet management with GPS tracking and predictive maintenance</li>
-            <li>Reduced vehicle idle time by 38%; improved utilization from 62% to 84%</li>
-            <li>AI-powered dispatching with real-time geofencing and route optimization</li>
-            <li>Saved ~15 hours/week in administrative tasks through automation</li>
-          </ul>
-          <a href="{{ url_for('project_detail', pid=2) }}" class="project-link">View Full Case Study →</a>
-        </div>
-
-        <div class="project-item">
-          <h3><a href="{{ url_for('project_detail', pid=0) }}">AI-Powered Python Debugging Platform</a></h3>
-          <p class="project-sub">Python, PyTorch, Hugging Face, PEFT, LIME, SHAP</p>
-          <ul class="project-bullets">
-            <li>Published AI research on personalized debugging assistance using fine-tuned LLMs</li>
-            <li>87% accuracy in error detection; 45% reduction in debugging time</li>
-            <li>Explainable AI (XAI) with LIME/SHAP for transparent recommendations</li>
-            <li>Deployed platform supporting 100+ concurrent users with 99.2% uptime</li>
-          </ul>
-          <a href="{{ url_for('project_detail', pid=0) }}" class="project-link">View Full Case Study →</a>
-        </div>
+        {% endfor %}
       </div>
 
-      <!-- RIGHT: Skills -->
-      <div>
-        <div class="cv-section-title">Skills &amp; Expertise</div>
+      <!-- Right: Skills -->
+      <div class="reveal-right">
+        <h2 class="section-title">Skills</h2>
 
         <div class="skill-group">
-          <div class="skill-group-title">Business Analysis</div>
-          <p>Requirements Engineering, Stakeholder Analysis, SWOT/PESTLE, Gap Analysis, Process Mapping, Feasibility Studies, Business Case Development</p>
+          <div class="skill-group-title">AI / Machine Learning</div>
+          <div class="skill-tags stagger">
+            <span class="skill-tag stagger-item">Python</span>
+            <span class="skill-tag stagger-item">TensorFlow</span>
+            <span class="skill-tag stagger-item">PyTorch</span>
+            <span class="skill-tag stagger-item">Scikit-learn</span>
+            <span class="skill-tag stagger-item">LIME / SHAP</span>
+            <span class="skill-tag stagger-item">NLP</span>
+          </div>
         </div>
 
         <div class="skill-group">
-          <div class="skill-group-title">Agile &amp; Methodologies</div>
-          <p>Scrum, Sprint Planning, User Stories, Acceptance Criteria, Retrospectives, Kanban, Waterfall, Cross-functional Collaboration</p>
+          <div class="skill-group-title">Web Development</div>
+          <div class="skill-tags stagger">
+            <span class="skill-tag stagger-item">React.js</span>
+            <span class="skill-tag stagger-item">Django</span>
+            <span class="skill-tag stagger-item">Flask</span>
+            <span class="skill-tag stagger-item">PHP</span>
+            <span class="skill-tag stagger-item">REST API</span>
+            <span class="skill-tag stagger-item">TypeScript</span>
+          </div>
         </div>
 
         <div class="skill-group">
-          <div class="skill-group-title">Data &amp; Analytics</div>
-          <p>Python, SQL, Power BI, Pandas, NumPy, Scikit-learn, ARIMA, Logistic Regression, Random Forest, Sentiment Analysis, Data Visualization</p>
+          <div class="skill-group-title">Data & Analytics</div>
+          <div class="skill-tags stagger">
+            <span class="skill-tag stagger-item">Power BI</span>
+            <span class="skill-tag stagger-item">Tableau</span>
+            <span class="skill-tag stagger-item">SQL</span>
+            <span class="skill-tag stagger-item">Pandas</span>
+            <span class="skill-tag stagger-item">Apache Spark</span>
+          </div>
         </div>
 
         <div class="skill-group">
-          <div class="skill-group-title">Tools &amp; Platforms</div>
-          <p>Jira, Confluence, MS Visio, Figma, MySQL, PostgreSQL, Git, Flask, Spring Boot, React, Django REST Framework</p>
+          <div class="skill-group-title">Cloud & DevOps</div>
+          <div class="skill-tags stagger">
+            <span class="skill-tag stagger-item">AWS</span>
+            <span class="skill-tag stagger-item">Docker</span>
+            <span class="skill-tag stagger-item">Kubernetes</span>
+            <span class="skill-tag stagger-item">Redis</span>
+            <span class="skill-tag stagger-item">CI/CD</span>
+          </div>
         </div>
 
         <div class="skill-group">
-          <div class="skill-group-title">AI &amp; Machine Learning</div>
-          <p>NLP, Deep Learning, LangChain, Gemini API, FAISS, RAG Architecture, PyTorch, TensorFlow, LIME/SHAP, Fine-tuning (PEFT)</p>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-title">Research &amp; Communication</div>
-          <p>Academic Research, Literature Reviews, Analytical Writing, Stakeholder Communication, Presentation Design, Critical Thinking</p>
+          <div class="skill-group-title">Business & Research</div>
+          <div class="skill-tags stagger">
+            <span class="skill-tag stagger-item">Market Research</span>
+            <span class="skill-tag stagger-item">Business Analytics</span>
+            <span class="skill-tag stagger-item">Trade Intelligence</span>
+            <span class="skill-tag stagger-item">Strategic Planning</span>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<div class="container"><hr class="divider"></div>
+<hr class="divider">
 
-<!-- ════════════════ EDUCATION & REFERENCES (Two-Column) ════════════════ -->
+<!-- ═══ EDUCATION & REFERENCES ═══ -->
 <section class="cv-section">
   <div class="container">
     <div class="two-col">
-
-      <!-- LEFT: Education -->
-      <div>
-        <div class="cv-section-title">Education</div>
+      <!-- Education -->
+      <div class="reveal-left">
+        <h2 class="section-title">Education</h2>
 
         <div class="edu-item">
-          <h3>BSc (Hons) in Computer Science &amp; Technology</h3>
-          <p class="edu-meta">Uva Wellassa University of Sri Lanka<br>Currently Pursuing</p>
+          <h3>BSc (Hons) Computer Science</h3>
+          <p class="edu-meta">University of Wolverhampton, UK · 2023 – Present</p>
         </div>
-
         <div class="edu-item">
-          <h3>BBM General (External Degree)</h3>
-          <p class="edu-meta">Uva Wellassa University of Sri Lanka<br>Currently Pursuing</p>
+          <h3>BSc (Hons) Business Management</h3>
+          <p class="edu-meta">University of Wolverhampton, UK · 2023 – Present</p>
         </div>
-
         <div class="edu-item">
-          <h3>Research Methodology Certificate</h3>
-          <p class="edu-meta">Awarded 2025</p>
+          <h3>Higher National Diploma in IT</h3>
+          <p class="edu-meta">NIBM, Sri Lanka · 2021 – 2023</p>
         </div>
       </div>
 
-      <!-- RIGHT: References -->
-      <div>
-        <div class="cv-section-title">References</div>
+      <!-- References -->
+      <div class="reveal-right">
+        <h2 class="section-title">References</h2>
 
         <div class="ref-item">
-          <div class="ref-name">Academic Referee</div>
-          <p class="ref-meta">
-            Senior Lecturer<br>
-            Department of Computer Science &amp; Technology<br>
-            Uva Wellassa University of Sri Lanka<br>
-            <em>Available upon request</em>
-          </p>
+          <p class="ref-name">Academic Supervisor</p>
+          <p class="ref-meta">University of Wolverhampton<br>Available upon request</p>
         </div>
-
         <div class="ref-item">
-          <div class="ref-name">Professional Referee</div>
-          <p class="ref-meta">
-            Director<br>
-            Merivox (PVT) Ltd<br>
-            International Commodities Trading<br>
-            <em>Available upon request</em>
-          </p>
+          <p class="ref-name">Industry Supervisor</p>
+          <p class="ref-meta">Professional reference<br>Available upon request</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<div class="container"><hr class="divider"></div>
+<hr class="divider">
 
-<!-- ════════════════ EXPLORE MORE ════════════════ -->
-<section class="cv-section text-center">
+<!-- ═══ CTA ═══ -->
+<section class="cta-section reveal">
   <div class="container">
-    <p class="cv-text" style="max-width:520px;margin:0 auto 1.5rem;">
-      Explore my full project case studies and published writings for a deeper look at my work.
-    </p>
-    <div style="display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;">
-      <a href="{{ url_for('projects_page') }}" class="btn-cv">All Projects →</a>
-      <a href="{{ url_for('writings_page') }}" class="btn-cv">Writings →</a>
-      <a href="{{ url_for('contact') }}" class="btn-cv">Contact →</a>
+    <h2 class="cta-heading">Explore More</h2>
+    <p class="cta-sub">Dive into projects, writings, or get in touch.</p>
+    <div class="cta-row">
+      <a href="/projects" class="btn-outline">All Projects</a>
+      <a href="/writings" class="btn-outline">Writings</a>
+      <a href="/contact" class="btn-outline">Contact</a>
     </div>
   </div>
 </section>

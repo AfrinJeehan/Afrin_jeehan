@@ -4,36 +4,35 @@
 {% block content %}
 <div class="container">
   <div class="page-header">
-    <p class="breadcrumb">
-      <a href="{{ url_for('index') }}">CV</a> <span>/</span>
-      <a href="{{ url_for('writings_page') }}">Writings</a> <span>/</span>
-      {{ category_info.name }}
-    </p>
-    <h1 class="page-title">{{ category_info.name }}</h1>
-    <p class="page-subtitle">{{ category_info.description }}</p>
+    <p class="breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/writings">Writings</a> <span>/</span> {{ category_info.name }}</p>
+    <h1 class="page-title reveal"><i class="fas {{ category_info.icon }}"></i> {{ category_info.name }}</h1>
+    <p class="page-subtitle reveal">{{ category_info.description }}</p>
   </div>
 </div>
 
-<div class="container"><hr class="divider" style="margin-top:2rem;"></div>
+<hr class="divider">
 
-<div class="container">
-  <div class="writings-section">
-    {% if items %}
-      {% for w in items %}
-      <div class="writing-listing">
-        <h3><a href="{{ url_for('writing_detail', category=category, writing_id=w.id) }}">{{ w.title }}</a></h3>
-        <p class="writing-excerpt">{{ w.excerpt }}</p>
-        <div class="writing-meta">
-          <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
-          <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
-        </div>
+<div class="container writings-section">
+  {% if items %}
+  <div class="stagger">
+    {% for w in items %}
+    <div class="writing-listing stagger-item">
+      <h3><a href="/writings/{{ category }}/{{ w.id }}">{{ w.title }}</a></h3>
+      <p class="writing-excerpt">{{ w.excerpt }}</p>
+      <div class="writing-meta">
+        <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
+        <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
+        {% for tag in w.tags[:3] %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
       </div>
-      {% endfor %}
-    {% else %}
-      <div class="empty-state">
-        <p>No writings in this category yet.</p>
-      </div>
-    {% endif %}
+    </div>
+    {% endfor %}
   </div>
+  {% else %}
+  <div class="empty-state">
+    <p>No writings in this category yet.</p>
+  </div>
+  {% endif %}
 </div>
 {% endblock %}

@@ -2,61 +2,50 @@
 {% block title %}{{ writing.title }} — Afrin Jeehan{% endblock %}
 
 {% block content %}
-<div class="writing-detail">
-  <div class="container">
+<div class="container writing-detail">
 
-    <!-- Header -->
-    <div class="writing-detail-header">
-      <p class="breadcrumb">
-        <a href="{{ url_for('index') }}">CV</a> <span>/</span>
-        <a href="{{ url_for('writings_page') }}">Writings</a> <span>/</span>
-        <a href="{{ url_for('writings_category', category=category) }}">{{ category_info.name }}</a>
-      </p>
-      <span class="writing-category-label">{{ category_info.name }}</span>
-      <h1 class="writing-detail-title">{{ writing.title }}</h1>
-      <div class="writing-detail-meta">
-        <span><i class="fas fa-calendar"></i> {{ writing.date }}</span>
-        <span><i class="fas fa-clock"></i> {{ writing.read_time }}</span>
-      </div>
+  <div class="writing-detail-header reveal">
+    <span class="writing-category-label"><a href="/writings/{{ category }}">{{ category_info.name }}</a></span>
+    <h1 class="writing-detail-title">{{ writing.title }}</h1>
+    <div class="writing-detail-meta">
+      <span><i class="fas fa-calendar"></i> {{ writing.date }}</span>
+      <span><i class="fas fa-clock"></i> {{ writing.read_time }}</span>
     </div>
-
-    <hr class="divider">
-
-    <!-- Body -->
-    <div class="writing-detail-body">
-      {% if category == 'poems' %}
-        <div class="poem-content">{{ writing.content }}</div>
-      {% else %}
-        {{ writing.content | replace('\n\n', '</p><p>') | replace('\n', '<br>') | safe }}
-      {% endif %}
-
-      <!-- Tags -->
-      {% if writing.tags %}
-      <div class="writing-tags">
-        {% for t in writing.tags %}
-        <span class="tag">{{ t }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
-
-    <!-- Related Writings -->
-    {% set others = related_writings | rejectattr('id', 'equalto', writing.id) | list %}
-    {% if others %}
-    <div class="related-section">
-      <h3>More in {{ category_info.name }}</h3>
-      {% for w in others[:3] %}
-      <div class="writing-listing">
-        <h3 style="font-size:1rem;"><a href="{{ url_for('writing_detail', category=category, writing_id=w.id) }}">{{ w.title }}</a></h3>
-        <div class="writing-meta">
-          <span><i class="fas fa-calendar"></i> {{ w.date }}</span>
-          <span><i class="fas fa-clock"></i> {{ w.read_time }}</span>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    {% endif %}
-
   </div>
+
+  <hr class="divider">
+
+  <div class="writing-detail-body reveal">
+    {% if category == 'poems' %}
+    <div class="poem-content">{{ writing.content }}</div>
+    {% else %}
+    {{ writing.content|safe|replace('\n\n', '</p><p>')|replace('\n', '<br>') }}
+    {% endif %}
+  </div>
+
+  {% if writing.tags %}
+  <div class="writing-tags reveal">
+    {% for tag in writing.tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Related -->
+  {% set related = related_writings|rejectattr('id', 'equalto', writing.id)|list %}
+  {% if related %}
+  <div class="related-section reveal">
+    <h3>More in {{ category_info.name }}</h3>
+    {% for r in related[:3] %}
+    <div class="writing-listing">
+      <h3><a href="/writings/{{ category }}/{{ r.id }}">{{ r.title }}</a></h3>
+      <div class="writing-meta">
+        <span><i class="fas fa-clock"></i> {{ r.read_time }}</span>
+        <span><i class="fas fa-calendar"></i> {{ r.date }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
 </div>
 {% endblock %}

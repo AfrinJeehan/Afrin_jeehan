@@ -3,46 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Afrin Jeehan — Portfolio{% endblock %}</title>
-  <meta name="description" content="Afrin Jeehan — Business Analyst, CS & BBM Undergraduate. Editorial portfolio.">
-
-  <!-- Fonts (loaded via CSS @import as well, this is a backup preconnect) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- Styles -->
+  <title>{% block title %}Afrin Jeehan{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}Afrin Jeehan — CS & Business student, AI researcher, developer{% endblock %}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  {% block extra_css %}{% endblock %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-
   <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="{{ url_for('index') }}" class="logo">Afrin Jeehan</a>
-
-      <nav class="nav-desktop" aria-label="Main navigation">
-        <a class="nav-link" href="{{ url_for('index') }}">CV</a>
-        <a class="nav-link" href="{{ url_for('projects_page') }}">Projects</a>
-        <a class="nav-link" href="{{ url_for('writings_page') }}">Writings</a>
-        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+      <a href="/" class="logo">Afrin Jeehan</a>
+      <nav class="nav-desktop">
+        <a href="/" class="nav-link">CV</a>
+        <a href="/projects" class="nav-link">Projects</a>
+        <a href="/writings" class="nav-link">Writings</a>
+        <a href="/contact" class="nav-link">Contact</a>
       </nav>
-
-      <button id="mobile-menu-btn" type="button" class="mobile-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
     </div>
-
-    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
-      <a class="mobile-link" href="{{ url_for('index') }}">CV</a>
-      <a class="mobile-link" href="{{ url_for('projects_page') }}">Projects</a>
-      <a class="mobile-link" href="{{ url_for('writings_page') }}">Writings</a>
-      <a class="mobile-link" href="{{ url_for('contact') }}">Contact</a>
+    <nav class="mobile-menu" id="mobile-menu">
+      <a href="/" class="mobile-link">CV</a>
+      <a href="/projects" class="mobile-link">Projects</a>
+      <a href="/writings" class="mobile-link">Writings</a>
+      <a href="/contact" class="mobile-link">Contact</a>
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main>
     {% block content %}{% endblock %}
   </main>
@@ -50,16 +38,15 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-copy">&copy; {{ current_year }} Afrin Jeehan. All rights reserved.</div>
+      <span class="footer-copy">&copy; {{ current_year }} Afrin Jeehan</span>
       <div class="footer-links">
-        <a href="https://linkedin.com/in/afrin-jeehan-29b949309" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/AfrinJeehan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:afrinjeehan.ajmal@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/afrinjeehan" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/afrinjeehan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:afrinjeehan@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </footer>
 
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  {% block extra_js %}{% endblock %}
 </body>
 </html>
