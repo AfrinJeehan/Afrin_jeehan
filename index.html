@@ -1,227 +1,588 @@
-{% extends "layout.html" %}
-{% block title %}Afrin Jeehan — Portfolio{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afrin Jeehan — Portfolio</title>
+  <meta name="description" content="Afrin Jeehan — Business Analyst, CS &amp; Business undergraduate, AI researcher, developer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ══════════════════════════════════════════════════════
+       AFRIN JEEHAN — Editorial Portfolio
+       Playfair Display + DM Sans | Cream / Black / Warm
+       ══════════════════════════════════════════════════════ */
 
-{% block content %}
-<!-- ═══ HERO ═══ -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-layout">
-      <div class="reveal">
-        <h1 class="hero-name">AFRIN JEEHAN</h1>
-        <p class="hero-title">BUSINESS ANALYST <strong>|</strong> CS &amp; BBM Undergraduate</p>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+    button { border: none; background: none; cursor: pointer; font-family: inherit; }
 
-        <div class="hero-links">
-          <a href="https://www.linkedin.com/in/afrin-jeehan-29b949309/" target="_blank" class="link-item">
-            <i class="fab fa-linkedin-in"></i> Afrin Jeehan
-          </a>
-          <a href="https://github.com/AfrinJeehan" target="_blank" class="link-item">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-          <a href="mailto:afrinjeehan.ajmal@gmail.com" class="link-item">
-            <i class="fas fa-envelope"></i> Email
-          </a>
-          <a href="/cv" target="_blank" class="btn-cv"><i class="fas fa-file-alt"></i> View CV</a>
+    :root {
+      --bg:             #F5F0EB;
+      --bg-alt:         #EDE8E1;
+      --surface:        #FAF8F5;
+      --text:           #1A1A1A;
+      --text-secondary: #4A4A4A;
+      --text-muted:     #9A9590;
+      --accent:         #8B7355;
+      --border:         #1A1A1A;
+      --border-light:   #D4CCC3;
+      --serif:          'Playfair Display', Georgia, serif;
+      --sans:           'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+      --container:      1100px;
+      --ease:           cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    ::selection { background: var(--accent); color: #fff; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 800; line-height: 1.15; }
+    p { margin-bottom: 0.85rem; }
+    p:last-child { margin-bottom: 0; }
+    .divider { border: none; height: 1px; background: var(--border); margin: 0; }
+
+    /* ── Scroll Reveal ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .stagger > .stagger-item { opacity: 0; transform: translateY(18px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+    .stagger.visible > .stagger-item { opacity: 1; transform: translateY(0); }
+    .stagger.visible > .stagger-item:nth-child(1) { transition-delay: 0s; }
+    .stagger.visible > .stagger-item:nth-child(2) { transition-delay: 0.08s; }
+    .stagger.visible > .stagger-item:nth-child(3) { transition-delay: 0.16s; }
+    .stagger.visible > .stagger-item:nth-child(4) { transition-delay: 0.24s; }
+    .stagger.visible > .stagger-item:nth-child(5) { transition-delay: 0.32s; }
+    .stagger.visible > .stagger-item:nth-child(6) { transition-delay: 0.40s; }
+    .stagger.visible > .stagger-item:nth-child(7) { transition-delay: 0.48s; }
+    .stagger.visible > .stagger-item:nth-child(8) { transition-delay: 0.56s; }
+
+    /* ── Header ── */
+    .site-header {
+      padding: 1.1rem 0;
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(245, 240, 235, 0.92);
+    }
+    .header-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); transition: color 0.2s; }
+    .logo:hover { color: var(--accent); }
+    .nav-desktop { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-link { font-size: 0.73rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); transition: color 0.25s; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--text); }
+    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px; background: var(--accent); transition: width 0.35s var(--ease); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .mobile-toggle { display: none; font-size: 1.2rem; color: var(--text); padding: 0.25rem; }
+    .mobile-menu { display: none; padding: 1rem 2rem 1.5rem; border-bottom: 2px solid var(--border); background: var(--bg); }
+    .mobile-menu.open { display: block; }
+    .mobile-link { display: block; padding: 0.7rem 0; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); border-bottom: 1px solid var(--border-light); }
+    .mobile-link:last-child { border-bottom: none; }
+    .mobile-link:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    .hero { padding: 4rem 0 0; }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    .hero-name { font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 800; letter-spacing: -0.01em; line-height: 1.05; margin-bottom: 0.4rem; }
+    .hero-title { font-size: 1rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.4rem; }
+    .hero-links { display: flex; align-items: center; gap: 1.15rem; margin-bottom: 1.75rem; flex-wrap: wrap; }
+    .link-item { font-size: 0.8rem; font-weight: 500; color: var(--text-secondary); display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .link-item:hover { color: var(--accent); }
+    .link-item i { font-size: 0.85rem; }
+    .btn-cv { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 1.3rem; border: 1.5px solid var(--border); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); transition: all 0.3s var(--ease); }
+    .btn-cv:hover { background: var(--text); color: var(--bg); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+    .hero-tagline { font-family: var(--serif); font-size: 1.2rem; font-style: normal; line-height: 1.75; color: var(--text-secondary); max-width: 560px; }
+    .hero-tagline strong { font-style: normal; font-weight: 700; color: var(--text); }
+
+    /* ── Photo ── */
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.03);
+      background: linear-gradient(135deg, var(--bg) 0%, rgba(0,0,0,0.02) 100%);
+      transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+    }
+    .hero-photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top center; filter: grayscale(10%); transition: filter 0.6s var(--ease), transform 0.6s var(--ease); }
+    .hero-photo:hover { transform: translateY(-8px) rotate(-1deg); box-shadow: 0 15px 50px rgba(0,0,0,0.12); }
+    .hero-photo:hover img { filter: grayscale(0%); }
+    .hero-photo-fallback { width: 100%; aspect-ratio: 3 / 4; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 3.5rem; font-weight: 700; color: var(--border-light); border-radius: 24px; }
+
+    /* ── Stat Strip ── */
+    .stat-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border: 1px solid var(--border); margin: 2.5rem 0 0; }
+    .stat-item { text-align: center; padding: 1.4rem 0.75rem; background: var(--surface); transition: background 0.25s; }
+    .stat-item:hover { background: var(--bg-alt); }
+    .stat-number { font-family: var(--serif); font-size: 2rem; font-weight: 800; line-height: 1; margin-bottom: 0.25rem; color: var(--text); }
+    .stat-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+    /* ── CV Sections ── */
+    .cv-section { padding: 2.5rem 0; }
+    .section-title { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; color: var(--accent); }
+
+    /* Achievements */
+    .achievement-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.7rem; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); }
+    .achievement-list li::before { content: ''; position: absolute; left: 0; top: 0.55rem; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+    .achievement-list li:last-child { margin-bottom: 0; }
+    .achievement-list strong { color: var(--text); font-weight: 600; }
+
+    /* Two column */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+
+    /* Project items */
+    .project-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light); transition: padding-left 0.3s var(--ease); }
+    .project-item:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+    .project-item:hover { padding-left: 0.5rem; }
+    .project-item h3 { font-family: var(--serif); font-size: 1rem; font-weight: 600; margin-bottom: 0.1rem; }
+    .project-item h3 a { transition: color 0.2s; }
+    .project-item h3 a:hover { color: var(--accent); }
+    .project-sub { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.25rem; letter-spacing: 0.02em; }
+    .project-oneliner { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; }
+    .project-link { display: inline-block; margin-top: 0.25rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); border-bottom: 1px solid transparent; transition: all 0.25s; }
+    .project-link:hover { border-color: var(--accent); }
+
+    /* Skills */
+    .skill-group { margin-bottom: 1.5rem; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group-title { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.6rem; color: var(--text); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .skill-tag { font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); padding: 0.4rem 0.85rem; border: 1px solid var(--border-light); border-radius: 4px; transition: all 0.2s; line-height: 1.4; }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--bg); }
+
+    /* Education */
+    .edu-item { margin-bottom: 0.8rem; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-item h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.05rem; }
+    .edu-meta { font-size: 0.77rem; color: var(--text-muted); line-height: 1.4; }
+
+    /* CTA */
+    .cta-section { text-align: center; padding: 3rem 0; }
+    .cta-heading { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .cta-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .cta-row { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1.2rem; border: 1.5px solid var(--border); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); transition: all 0.3s var(--ease); }
+    .btn-outline:hover { background: var(--text); color: var(--bg); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+
+    /* ── Footer ── */
+    .site-footer { padding: 1.75rem 0 1.5rem; border-top: 2px solid var(--border); }
+    .footer-inner { max-width: var(--container); margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.03em; }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 0.95rem; color: var(--text-muted); transition: color 0.2s, transform 0.2s; }
+    .footer-links a:hover { color: var(--accent); transform: translateY(-1px); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: 1fr; gap: 0; }
+      .two-col > div:first-child { padding-bottom: 2rem; border-bottom: 1px solid var(--border-light); margin-bottom: 2rem; }
+      .stat-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hero-photo { max-width: 180px; order: -1; }
+      .hero-name { font-size: 2rem; }
+      .nav-desktop { display: none; }
+      .mobile-toggle { display: block; }
+      .footer-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .container, .header-inner { padding: 0 1.25rem; }
+      .hero { padding: 2.5rem 0 0; }
+      .hero-links { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    }
+    @media print {
+      .site-header, .site-footer, .mobile-toggle, .mobile-menu { display: none; }
+      body { background: #fff; font-size: 11pt; }
+      .reveal, .reveal-left, .reveal-right, .stagger > .stagger-item { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Afrin Jeehan</a>
+      <nav class="nav-desktop">
+        <a href="index.html" class="nav-link active">PROFILE</a>
+        <a href="docs/projects/index.html" class="nav-link">PROJECTS</a>
+        <a href="docs/writings/index.html" class="nav-link">WRITINGS</a>
+        <a href="docs/contact/index.html" class="nav-link">CONTACT</a>
+      </nav>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu">
+      <a href="index.html" class="mobile-link">PROFILE</a>
+      <a href="docs/projects/index.html" class="mobile-link">PROJECTS</a>
+      <a href="docs/writings/index.html" class="mobile-link">WRITINGS</a>
+      <a href="docs/contact/index.html" class="mobile-link">CONTACT</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-layout">
+          <div class="reveal">
+            <h1 class="hero-name">AFRIN JEEHAN</h1>
+            <p class="hero-title">BUSINESS ANALYST <strong>|</strong> CS &amp; BBM Undergraduate</p>
+
+            <div class="hero-links">
+              <a href="https://www.linkedin.com/in/afrin-jeehan-29b949309/" target="_blank" class="link-item">
+                <i class="fab fa-linkedin-in"></i> Afrin Jeehan
+              </a>
+              <a href="https://github.com/AfrinJeehan" target="_blank" class="link-item">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="mailto:afrinjeehan.ajmal@gmail.com" class="link-item">
+                <i class="fas fa-envelope"></i> Email
+              </a>
+              <a href="static/Afrin_Jeehan_CV.pdf" target="_blank" class="btn-cv">
+                <i class="fas fa-file-alt"></i> View CV
+              </a>
+            </div>
+
+            <p class="hero-tagline">
+              Business Analyst bridging <strong>technology</strong> &amp; <strong>business strategy</strong> —
+              transforming requirements into results and data into decisions.
+            </p>
+          </div>
+
+          <div class="hero-photo reveal-right">
+            <img src="static/images/profile.jpg" alt="Afrin Jeehan"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="hero-photo-fallback" style="display:none;">AJ</div>
+          </div>
         </div>
 
-        <p class="hero-tagline">
-          Business Analyst bridging <strong>technology</strong> &amp; <strong>business strategy</strong> transforming requirements into results and data into decisions.</p>
-      </div>
-
-      <div class="hero-photo reveal-right">
-  <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Afrin Jeehan"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-  <div class="hero-photo-fallback" style="display:none;">AJ</div>
-</div>
-
-    <!-- Stat Strip -->
-    <div class="stat-strip reveal">
-      <div class="stat-item">
-        <div class="stat-number" data-target="8" data-suffix="+">0+</div>
-        <div class="stat-label">Projects</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" data-target="6">0</div>
-        <div class="stat-label">Tech Domains</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" data-target="17" data-suffix="+">0+</div>
-        <div class="stat-label">Publications</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" data-target="3">0</div>
-        <div class="stat-label">Degrees</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section class="cv-section">
-  <div class="container">
-    <h2 class="section-title reveal">Key Achievements</h2>
-    <ul class="achievement-list stagger">
-      <li class="stagger-item">
-        <strong>Sustainability &amp; Stakeholder Focus</strong> — Designed a food waste reduction platform connecting 4 stakeholder groups, optimizing distribution efficiency by 60%.
-      </li>
-      
-      <li class="stagger-item">
-        <strong>Cross-Functional Leadership</strong> — Directed 3+ projects across technical teams and clients, delivering complex solutions with a 90% error reduction rate.
-      </li>
-      
-      <li class="stagger-item">
-        <strong>Research &amp; Innovation</strong> — Published findings on AI explainability and user trust; developed a proprietary Business Protocol for Surplus Food Management.
-      </li>
-
-      <li class="stagger-item">
-        <strong>AI Debugging Platform</strong> — Achieved 87% error detection accuracy, resulting in 45% faster debugging workflows.
-      </li>
-    </ul>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ═══ PROJECTS & SKILLS ═══ -->
-<section class="cv-section">
-  <div class="container">
-    <div class="two-col">
-      <!-- Left: Featured Projects -->
-      <div class="reveal-left">
-        <h2 class="section-title">Featured Projects</h2>
-
-        {% for p in projects[:3] %}
-        <div class="project-item">
-          <h3><a href="/projects/{{ loop.index0 }}">{{ p.title }}</a></h3>
-          <p class="project-sub">{{ p.category }} · {{ p.technologies[:3]|join(', ') }}</p>
-          <p class="project-oneliner">{{ p.description[:120] }}{% if p.description|length > 120 %}…{% endif %}</p>
-          <a href="/projects/{{ loop.index0 }}" class="project-link">View Case Study →</a>
-        </div>
-        {% endfor %}
-      </div>
-
-     <div class="reveal-right">
-  <h2 class="section-title">Skills</h2>
-
-  <div class="skill-group">
-    <div class="skill-group-title">Business Analysis & Agile</div>
-    <div class="skill-tags stagger">
-      <span class="skill-tag stagger-item">Requirements Gathering</span>
-      <span class="skill-tag stagger-item">Stakeholder Management</span>
-      <span class="skill-tag stagger-item">Gap Analysis</span>
-      <span class="skill-tag stagger-item">Process Optimization</span>
-      <span class="skill-tag stagger-item">Agile/Scrum</span>
-      <span class="skill-tag stagger-item">Sprint Planning</span>
-      <span class="skill-tag stagger-item">User Story Development</span>
-    </div>
-  </div>
-
-  <div class="skill-group">
-    <div class="skill-group-title">Tools & Platforms</div>
-    <div class="skill-tags stagger">
-      <span class="skill-tag stagger-item">Jira</span>
-      <span class="skill-tag stagger-item">SAP</span>
-      <span class="skill-tag stagger-item">Figma</span>
-      <span class="skill-tag stagger-item">Git</span>
-      <span class="skill-tag stagger-item">Postman</span>
-      <span class="skill-tag stagger-item">Docker</span>
-      <span class="skill-tag stagger-item">AWS</span>
-    </div>
-  </div>
-
-  <div class="skill-group">
-    <div class="skill-group-title">AI / Machine Learning</div>
-    <div class="skill-tags stagger">
-      <span class="skill-tag stagger-item">Python</span>
-      <span class="skill-tag stagger-item">TensorFlow</span>
-      <span class="skill-tag stagger-item">NLP</span>
-      <span class="skill-tag stagger-item">AI/ML Analytics</span>
-      <span class="skill-tag stagger-item">LIME / SHAP</span>
-    </div>
-  </div>
-
-  <div class="skill-group">
-    <div class="skill-group-title">Data & Analytics</div>
-    <div class="skill-tags stagger">
-      <span class="skill-tag stagger-item">SQL</span>
-      <span class="skill-tag stagger-item">Power BI</span>
-      <span class="skill-tag stagger-item">Pandas</span>
-      <span class="skill-tag stagger-item">Excel</span>
-      <span class="skill-tag stagger-item">Statistical Analysis</span>
-    </div>
-  </div>
-
-  <div class="skill-group">
-    <div class="skill-group-title">Web Development</div>
-    <div class="skill-tags stagger">
-      <span class="skill-tag stagger-item">React.js</span>
-      <span class="skill-tag stagger-item">Flask</span>
-      <span class="skill-tag stagger-item">Django</span>
-      <span class="skill-tag stagger-item">REST API</span>
-    </div>
-  </div>
-</div>
-</section>
-
-<hr class="divider">
-
-<section class="cv-section">
-  <div class="container">
-    <div class="two-col">
-      <div class="reveal-left">
-        <h2 class="section-title">Education</h2>
-
-        <div class="edu-item">
-          <h3>BSc Hons in Computer Science and Technology</h3>
-          <p class="edu-meta">Uva Wellassa University of Sri Lanka · 2022 – Present</p>
-        </div>
-
-        <div class="edu-item">
-          <h3>Bachelor of Business Management General (External)</h3>
-          <p class="edu-meta">Uva Wellassa University of Sri Lanka · 2022 – Present</p>
-        </div>
-       
-      </div>
-
-      <div class="reveal-right">
-        <h2 class="section-title">Certifications</h2>
-
-        <div class="edu-item">
-          <h3>Atlassian Agile Project Management Professional</h3>
-          <p class="edu-meta">Atlassian | LinkedIn · Issued Mar 2026</p>
-        </div>
-
-        <div class="edu-item">
-          <h3>Research Methodology &amp; Scientific Communication</h3>
-          <p class="edu-meta">Certificate Course · 2025</p>
-        </div>
-
-        <div class="edu-item">
-          <h3>Diploma in English (PEARSON Assured)</h3>
-          <p class="edu-meta">ESOFT Campus, Sri Lanka · 2020</p>
+        <!-- Stat Strip -->
+        <div class="stat-strip reveal">
+          <div class="stat-item">
+            <div class="stat-number" data-target="8" data-suffix="+">0+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="6">0</div>
+            <div class="stat-label">Tech Domains</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="17" data-suffix="+">0+</div>
+            <div class="stat-label">Publications</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Degrees</div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══ KEY ACHIEVEMENTS ═══ -->
+    <section class="cv-section">
+      <div class="container">
+        <h2 class="section-title reveal">Key Achievements</h2>
+        <ul class="achievement-list stagger">
+          <li class="stagger-item">
+            <strong>Sustainability &amp; Stakeholder Focus</strong> — Designed a food waste reduction platform connecting 4 stakeholder groups, optimizing distribution efficiency by 60%.
+          </li>
+          <li class="stagger-item">
+            <strong>Cross-Functional Leadership</strong> — Directed 3+ projects across technical teams and clients, delivering complex solutions with a 90% error reduction rate.
+          </li>
+          <li class="stagger-item">
+            <strong>Research &amp; Innovation</strong> — Published findings on AI explainability and user trust; developed a proprietary Business Protocol for Surplus Food Management.
+          </li>
+          <li class="stagger-item">
+            <strong>AI Debugging Platform</strong> — Achieved 87% error detection accuracy, resulting in 45% faster debugging workflows.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══ FEATURED PROJECTS & SKILLS ═══ -->
+    <section class="cv-section">
+      <div class="container">
+        <div class="two-col">
+
+          <!-- Featured Projects -->
+          <div class="reveal-left">
+            <h2 class="section-title">Featured Projects</h2>
+
+            <div class="project-item">
+              <h3><a href="docs/projects/0/index.html">AI-Powered Python Debugging Education Platform</a></h3>
+              <p class="project-sub">AI/ML · Python, PyTorch, Hugging Face</p>
+              <p class="project-oneliner">A sophisticated AI-powered platform revolutionizing Python education through personalized debugging assistance.</p>
+              <a href="docs/projects/0/index.html" class="project-link">View Case Study →</a>
+            </div>
+
+            <div class="project-item">
+              <h3><a href="docs/projects/1/index.html">Share Plate — Surplus Food Management System</a></h3>
+              <p class="project-sub">Web Development · React.js, PHP, MySQL</p>
+              <p class="project-oneliner">An innovative web-based platform bridging surplus food availability and community need, reducing waste while addressing food insecurity.</p>
+              <a href="docs/projects/1/index.html" class="project-link">View Case Study →</a>
+            </div>
+
+            <div class="project-item">
+              <h3><a href="docs/projects/2/index.html">OSAC Connect — Intelligent Fleet Management System</a></h3>
+              <p class="project-sub">Full Stack · React.js, Django REST Framework, MySQL</p>
+              <p class="project-oneliner">A comprehensive fleet management platform integrating real-time GPS tracking, automated scheduling, and analytics.</p>
+              <a href="docs/projects/2/index.html" class="project-link">View Case Study →</a>
+            </div>
+
+            <a href="docs/projects/index.html" class="btn-outline" style="margin-top:0.5rem;display:inline-flex;">All Projects →</a>
+          </div>
+
+          <!-- Skills -->
+          <div class="reveal-right">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skill-group">
+              <div class="skill-group-title">Business Analysis &amp; Agile</div>
+              <div class="skill-tags stagger">
+                <span class="skill-tag stagger-item">Requirements Gathering</span>
+                <span class="skill-tag stagger-item">Stakeholder Management</span>
+                <span class="skill-tag stagger-item">Gap Analysis</span>
+                <span class="skill-tag stagger-item">Process Optimization</span>
+                <span class="skill-tag stagger-item">Agile / Scrum</span>
+                <span class="skill-tag stagger-item">Sprint Planning</span>
+                <span class="skill-tag stagger-item">User Story Development</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-title">Tools &amp; Platforms</div>
+              <div class="skill-tags stagger">
+                <span class="skill-tag stagger-item">Jira</span>
+                <span class="skill-tag stagger-item">SAP</span>
+                <span class="skill-tag stagger-item">Figma</span>
+                <span class="skill-tag stagger-item">Git</span>
+                <span class="skill-tag stagger-item">Postman</span>
+                <span class="skill-tag stagger-item">Docker</span>
+                <span class="skill-tag stagger-item">AWS</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-title">AI / Machine Learning</div>
+              <div class="skill-tags stagger">
+                <span class="skill-tag stagger-item">Python</span>
+                <span class="skill-tag stagger-item">TensorFlow</span>
+                <span class="skill-tag stagger-item">NLP</span>
+                <span class="skill-tag stagger-item">AI/ML Analytics</span>
+                <span class="skill-tag stagger-item">LIME / SHAP</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-title">Data &amp; Analytics</div>
+              <div class="skill-tags stagger">
+                <span class="skill-tag stagger-item">SQL</span>
+                <span class="skill-tag stagger-item">Power BI</span>
+                <span class="skill-tag stagger-item">Pandas</span>
+                <span class="skill-tag stagger-item">Excel</span>
+                <span class="skill-tag stagger-item">Statistical Analysis</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-title">Web Development</div>
+              <div class="skill-tags stagger">
+                <span class="skill-tag stagger-item">React.js</span>
+                <span class="skill-tag stagger-item">Flask</span>
+                <span class="skill-tag stagger-item">Django</span>
+                <span class="skill-tag stagger-item">REST API</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══ EDUCATION & CERTIFICATIONS ═══ -->
+    <section class="cv-section">
+      <div class="container">
+        <div class="two-col">
+
+          <div class="reveal-left">
+            <h2 class="section-title">Education</h2>
+
+            <div class="edu-item">
+              <h3>BSc Hons in Computer Science and Technology</h3>
+              <p class="edu-meta">Uva Wellassa University of Sri Lanka · 2022 – Present</p>
+            </div>
+            <div class="edu-item">
+              <h3>Bachelor of Business Management General (External)</h3>
+              <p class="edu-meta">Uva Wellassa University of Sri Lanka · 2022 – Present</p>
+            </div>
+          </div>
+
+          <div class="reveal-right">
+            <h2 class="section-title">Certifications</h2>
+
+            <div class="edu-item">
+              <h3>Atlassian Agile Project Management Professional</h3>
+              <p class="edu-meta">Atlassian | LinkedIn · Issued Mar 2026</p>
+            </div>
+            <div class="edu-item">
+              <h3>Research Methodology &amp; Scientific Communication</h3>
+              <p class="edu-meta">Certificate Course · 2025</p>
+            </div>
+            <div class="edu-item">
+              <h3>Diploma in English (PEARSON Assured)</h3>
+              <p class="edu-meta">ESOFT Campus, Sri Lanka · 2020</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cta-section reveal">
+      <div class="container">
+        <h2 class="cta-heading">Explore More</h2>
+        <p class="cta-sub">Dive into projects, writings, or get in touch.</p>
+        <div class="cta-row">
+          <a href="docs/projects/index.html" class="btn-outline">All Projects</a>
+          <a href="docs/writings/index.html" class="btn-outline">Writings</a>
+          <a href="docs/contact/index.html" class="btn-outline">Contact</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Afrin Jeehan</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/afrin-jeehan-29b949309/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/AfrinJeehan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:afrinjeehan.ajmal@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<hr class="divider">
+  <script>
+    (function () {
+      'use strict';
 
-     
-</section>
+      /* ── Mobile Menu ── */
+      var toggle = document.getElementById('mobile-toggle');
+      var menu   = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          menu.classList.toggle('open');
+          var icon = toggle.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            menu.classList.remove('open');
+            var icon = toggle.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
 
-<hr class="divider">
+      /* ── Smooth Scroll ── */
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var target = document.querySelector(anchor.getAttribute('href'));
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+      });
 
-<!-- ═══ CTA ═══ -->
-<section class="cta-section reveal">
-  <div class="container">
-    <h2 class="cta-heading">Explore More</h2>
-    <p class="cta-sub">Dive into projects, writings, or get in touch.</p>
-    <div class="cta-row">
-      <a href="/projects" class="btn-outline">All Projects</a>
-      <a href="/writings" class="btn-outline">Writings</a>
-      <a href="/contact" class="btn-outline">Contact</a>
-    </div>
-  </div>
-</section>
-{% endblock %}
+      /* ── Scroll Reveal (IntersectionObserver) ── */
+      var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger');
+      if ('IntersectionObserver' in window && revealEls.length) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(function (el) { observer.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('visible'); });
+      }
+
+      /* ── Counter Animation ── */
+      var statEls = document.querySelectorAll('.stat-number[data-target]');
+      if ('IntersectionObserver' in window && statEls.length) {
+        var counterObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { animateCounter(entry.target); counterObserver.unobserve(entry.target); }
+          });
+        }, { threshold: 0.3 });
+        statEls.forEach(function (el) { counterObserver.observe(el); });
+      }
+
+      function animateCounter(el) {
+        var target   = parseInt(el.getAttribute('data-target'), 10);
+        var suffix   = el.getAttribute('data-suffix') || '';
+        var prefix   = el.getAttribute('data-prefix') || '';
+        var duration = 1200;
+        var start    = performance.now();
+        function step(now) {
+          var progress = Math.min((now - start) / duration, 1);
+          var eased    = 1 - Math.pow(1 - progress, 3);
+          el.textContent = prefix + Math.round(target * eased) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+    })();
+  </script>
+
+</body>
+</html>
