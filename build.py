@@ -47,7 +47,7 @@ def rebase(html: str, base: str) -> str:
     html = html.replace('href="/"', f'href="{base}"')
 
     # Match href/src/content pointing to known internal prefixes
-    internal = r'(href|src|content)="(/(?:static|projects|writings|contact|cv|api)(?:/[^"]*)?)"'
+    internal = r'(href|src|content)="(/(?:static|projects|writings|contact|cv|api|resources)(?:/[^"]*)?)"'
     html = re.sub(
         internal,
         lambda m: f'{m.group(1)}="{base}{m.group(2).lstrip("/")}"',
@@ -104,6 +104,13 @@ def build(base_path="/"):
             if base_path != "/":
                 html = rebase(html, base_path)
             save(html, "contact", "index.html")
+
+        # ── Resources / Knowledge Hub ──
+        html = fetch(c, "/resources")
+        if html:
+            if base_path != "/":
+                html = rebase(html, base_path)
+            save(html, "resources", "index.html")
 
         # ── Writings hub ──
         html = fetch(c, "/writings")

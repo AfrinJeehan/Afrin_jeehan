@@ -109,3 +109,13 @@
   });
 
 })();
+
+/* ── Education Card Toggle (Resources page) ── */
+function toggleEdu(cardId) {
+  var card = document.getElementById(cardId);
+  if (!card) return;
+  var isOpen = card.classList.contains('open');
+  card.classList.toggle('open', !isOpen);
+  var header = card.querySelector('.edu-hub-header');
+  if (header) header.setAttribute('aria-expanded', String(!isOpen));
+}

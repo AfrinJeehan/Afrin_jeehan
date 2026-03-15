@@ -1305,6 +1305,11 @@ def contact():
     return render_template('contact.html')
 
 
+@app.route('/resources')
+def resources():
+    return render_template('resources.html')
+
+
 @app.route('/writings')
 def writings_page():
     # Main writings page with all categories

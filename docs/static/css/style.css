@@ -977,6 +977,546 @@ p:last-child { margin-bottom: 0; }
   .hero-links { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
 
+/* ══════════════════════════════════════════════════════
+   RESOURCES / KNOWLEDGE HUB PAGE
+   ══════════════════════════════════════════════════════ */
+
+.resources-section { padding: 2.5rem 0; }
+
+.resources-intro {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 640px;
+}
+
+/* ── Certificate Grid ── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.cert-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: all 0.3s var(--ease);
+}
+.cert-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+.cert-badge {
+  width: 100%;
+  height: 80px;
+  background: var(--bg-alt);
+  border: 1px dashed var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  overflow: hidden;
+}
+.cert-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cert-issuer {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.05rem;
+}
+
+.cert-name {
+  font-family: var(--serif);
+  font-size: 0.93rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.cert-date {
+  font-size: 0.69rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.cert-credential {
+  font-size: 0.67rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.cert-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: auto;
+}
+
+.cert-skill-tag {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--border-light);
+  transition: all 0.2s;
+}
+.cert-skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+  margin-top: 0.3rem;
+}
+.cert-link:hover { border-color: var(--accent); }
+
+/* ── Currently Pursuing ── */
+.pursuing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.pursuing-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent);
+  padding: 1.5rem;
+  transition: all 0.3s var(--ease);
+}
+.pursuing-card:hover {
+  background: var(--bg-alt);
+  transform: translateX(4px);
+}
+
+.pursuing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  padding: 0.2rem 0.55rem;
+  margin-bottom: 0.75rem;
+}
+
+.pursuing-title {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.pursuing-org {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.pursuing-detail {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ── Education Hub Cards ── */
+.edu-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.edu-hub-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: box-shadow 0.3s var(--ease);
+}
+.edu-hub-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+
+.edu-hub-header {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  user-select: none;
+}
+.edu-hub-header:hover { background: var(--bg-alt); }
+
+.edu-hub-degree {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.edu-hub-meta {
+  font-size: 0.69rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.edu-hub-toggle {
+  font-size: 0.8rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  transition: transform 0.3s var(--ease);
+}
+.edu-hub-card.open .edu-hub-toggle { transform: rotate(180deg); }
+
+.edu-hub-body {
+  padding: 1.25rem;
+  display: none;
+}
+.edu-hub-card.open .edu-hub-body { display: block; }
+
+.edu-hub-sub-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+  margin-top: 1rem;
+  display: block;
+}
+.edu-hub-sub-title:first-child { margin-top: 0; }
+
+.edu-hub-list { margin-bottom: 0.25rem; }
+.edu-hub-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.edu-hub-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.48rem;
+  width: 5px; height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.edu-hub-note {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--accent);
+  background: var(--bg-alt);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── Books ── */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.book-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  padding: 1.5rem;
+  transition: all 0.3s var(--ease);
+}
+.book-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+.book-stars {
+  font-size: 0.88rem;
+  margin-bottom: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+.book-title {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.book-author {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.book-review {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  border-left: 2px solid var(--border-light);
+  padding-left: 0.75rem;
+}
+
+/* ── Tools ── */
+.tools-intro {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--accent);
+  background: var(--bg-alt);
+  margin-bottom: 2rem;
+}
+
+.tools-category-block { margin-bottom: 2rem; }
+.tools-category-block:last-child { margin-bottom: 0; }
+
+.tools-category-heading {
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.85rem;
+}
+
+.tool-item {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  padding: 0.9rem 1rem;
+  transition: all 0.25s var(--ease);
+}
+.tool-item:hover {
+  border-color: var(--accent);
+  background: var(--bg-alt);
+}
+
+.tool-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.tool-context {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+}
+
+.tool-stars {
+  font-size: 0.72rem;
+  color: var(--accent);
+}
+
+.tool-status {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+  padding: 0.1rem 0.4rem;
+  margin-top: 0.25rem;
+}
+
+/* ── BA Resources (links) ── */
+.resources-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.resources-block { margin-bottom: 2rem; }
+.resources-block:last-child { margin-bottom: 0; }
+
+.resources-block-title {
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.resource-list { display: flex; flex-direction: column; gap: 0.65rem; }
+
+.resource-item {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  transition: all 0.25s var(--ease);
+}
+.resource-item:hover {
+  border-color: var(--accent);
+  background: var(--bg-alt);
+}
+
+.resource-icon {
+  font-size: 0.9rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.resource-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.1rem;
+}
+.resource-name a {
+  color: var(--text);
+  border-bottom: 1px solid var(--border-light);
+  transition: border-color 0.2s, color 0.2s;
+}
+.resource-name a:hover { color: var(--accent); border-color: var(--accent); }
+
+.resource-desc {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Currently Learning ── */
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.learning-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-top: 3px solid var(--accent);
+  padding: 1.25rem;
+  transition: all 0.3s var(--ease);
+}
+.learning-card:hover {
+  background: var(--bg-alt);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+.learning-icon {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.learning-title {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  color: var(--text);
+}
+
+.learning-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Resources CTA ── */
+.resources-cta {
+  text-align: center;
+  padding: 2.5rem 0 3.5rem;
+}
+.resources-cta p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+/* ── Resources Responsive ── */
+@media (max-width: 1000px) {
+  .cert-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+  .pursuing-grid { grid-template-columns: 1fr; }
+  .edu-hub-grid { grid-template-columns: 1fr; }
+  .books-grid { grid-template-columns: repeat(2, 1fr); }
+  .resources-two-col { grid-template-columns: 1fr; gap: 1.5rem; }
+  .learning-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .cert-grid { grid-template-columns: 1fr; }
+  .books-grid { grid-template-columns: 1fr; }
+  .learning-grid { grid-template-columns: 1fr; }
+  .tool-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Print ── */
 @media print {
   .site-header, .site-footer, .mobile-toggle, .mobile-menu { display: none; }
